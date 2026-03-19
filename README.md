@@ -29,6 +29,8 @@ PLANNED FEATURES
    If you copy the code, you don't get my fixes and improvements.
    If you use the addon as a dependency, it updates automatically.
 
+   Global search
+
 
 API FOR DEVELOPERS
 -------------------
