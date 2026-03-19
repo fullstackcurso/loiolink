@@ -45,6 +45,14 @@ How it works:
    from loiolink import remote
    text = remote.receive_text("Search in My Addon")
 
+
+   <import addon="plugin.program.loiolink"/>
+Llamadas:
+receive_text()
+ o 
+start_remote()
+
+
 That's it. Two lines. LoioLink handles the server, the web page,
 the waiting, and gives you back the text. You don't need to deal
 with HTTP servers, HTML, threading, or port management.
