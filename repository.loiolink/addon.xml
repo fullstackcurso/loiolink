@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon id="repository.loiolink" version="1.0.0" name="loiolink Repository" provider-name="RubénSDFA1laberot">
+  <extension point="xbmc.addon.repository" name="loiolink Repository">
+    <dir>
+      <info compressed="false">https://loiolo.io/addons.xml</info>
+      <checksum>https://loiolo.io/addons.xml.md5</checksum>
+      <datadir zip="true">https://loiolo.io/</datadir>
+    </dir>
+    <dir>
+      <info compressed="false">https://loioloio.github.io/flowfav/addons.xml</info>
+      <checksum>https://loioloio.github.io/flowfav/addons.xml.md5</checksum>
+      <datadir zip="true">https://loioloio.github.io/flowfav/</datadir>
+    </dir>
+    <dir>
+      <info compressed="false">https://loioloio.github.io/loiolog/addons.xml</info>
+      <checksum>https://loioloio.github.io/loiolog/addons.xml.md5</checksum>
+      <datadir zip="true">https://loioloio.github.io/loiolog/</datadir>
+    </dir>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="es_ES">Repositorio oficial de loiolink</summary>
+    <description lang="es_ES">Repositorio oficial para instalar y actualizar el addon loiolink.</description>
+    <platform>all</platform>
+    <assets>
+      <icon>icon.jpg</icon>
+    </assets>
+  </extension>
+</addon>

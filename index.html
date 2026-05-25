@@ -1,0 +1,2217 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-palette="teal">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Guía de usuario de loiolink</title>
+  <meta name="description"
+    content="Cómo instalar Kodi y loiolink, y cómo controlar Kodi desde el móvil o el ordenador.">
+  <meta name="robots" content="noindex, nofollow, noai, noimageai">
+  <meta name="googlebot" content="noindex, nofollow">
+  <meta name="bingbot" content="noindex, nofollow">
+  <meta name="GPTBot" content="noindex">
+  <meta name="OAI-SearchBot" content="noindex">
+  <meta name="ChatGPT-User" content="noindex">
+  <meta name="anthropic-ai" content="noindex">
+  <meta name="Claude-Web" content="noindex">
+  <meta name="ClaudeBot" content="noindex">
+  <meta name="Google-Extended" content="noindex">
+  <meta name="FacebookBot" content="noindex">
+  <meta name="PerplexityBot" content="noindex">
+  <meta name="CCBot" content="noindex">
+  <meta name="cohere-ai" content="noindex">
+  <meta name="Applebot-Extended" content="noindex">
+  <meta name="Bytespider" content="noindex">
+  <meta name="PetalBot" content="noindex">
+  <meta name="Diffbot" content="noindex">
+  <meta name="ImagesiftBot" content="noindex">
+  <meta name="omgili" content="noindex">
+  <meta name="Omgilibot" content="noindex">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23136b5e'/><g transform='translate(4 4)' fill='none' stroke='%23ffffff' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'><path d='M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7'/><path d='M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7'/></g></svg>">
+  <script>
+    (function () {
+      try {
+        const root = document.documentElement;
+        const theme = localStorage.getItem('loiolink-guia-theme');
+        const palette = localStorage.getItem('loiolink-guia-palette2');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const known = ['teal', 'indigo', 'burgundy', 'forest', 'terracotta'];
+        root.setAttribute('data-theme', theme || (prefersDark ? 'dark' : 'light'));
+        if (known.includes(palette)) root.setAttribute('data-palette', palette);
+        (localStorage.getItem('loiolink-guia-a11y') || '').split(' ').filter(Boolean)
+          .forEach(o => root.classList.add('a11y-' + o));
+      } catch (e) {
+        // sin localStorage se mantienen el tema y la paleta por defecto
+      }
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap">
+  <style>
+    :root {
+      --bg: #f5f4f1;
+      --surface: #ffffff;
+      --surface-2: #ecebe6;
+      --code-bg: #edece7;
+      --text: #22251f;
+      --text-soft: #565a52;
+      --text-mute: #8c8e85;
+      --border: #e3e1d9;
+      --warn: #a96e1a;
+      --warn-soft: #f4ecdd;
+      --warn-border: #e1cea4;
+      --shadow-lg: 0 10px 30px rgba(28, 30, 26, .16);
+    }
+
+    [data-theme="dark"] {
+      --bg: #191b18;
+      --surface: #212420;
+      --surface-2: #2b2e29;
+      --code-bg: #282b26;
+      --text: #e9e8e2;
+      --text-soft: #abaca3;
+      --text-mute: #7f817a;
+      --border: #33352f;
+      --warn: #d49a4f;
+      --warn-soft: #2a2316;
+      --warn-border: #4a3f27;
+      --shadow-lg: 0 10px 30px rgba(0, 0, 0, .55);
+    }
+
+    [data-palette="teal"] {
+      --primary: #136b5e;
+      --primary-strong: #0e564c;
+      --primary-soft: #e4efec;
+      --hero: #114a43
+    }
+
+    [data-palette="indigo"] {
+      --primary: #37548f;
+      --primary-strong: #2b4373;
+      --primary-soft: #e7eaf3;
+      --hero: #283c6e
+    }
+
+    [data-palette="burgundy"] {
+      --primary: #8a3144;
+      --primary-strong: #6f2737;
+      --primary-soft: #f3e6e9;
+      --hero: #5e2330
+    }
+
+    [data-palette="forest"] {
+      --primary: #356b3f;
+      --primary-strong: #2a5532;
+      --primary-soft: #e6efe5;
+      --hero: #274a2c
+    }
+
+    [data-palette="terracotta"] {
+      --primary: #a85534;
+      --primary-strong: #8a4429;
+      --primary-soft: #f5e9e2;
+      --hero: #7a3d24
+    }
+
+    [data-theme="dark"][data-palette="teal"] {
+      --primary: #58b4a4;
+      --primary-strong: #74c4b6;
+      --primary-soft: #17302c
+    }
+
+    [data-theme="dark"][data-palette="indigo"] {
+      --primary: #90a1d6;
+      --primary-strong: #aab6df;
+      --primary-soft: #1f2438
+    }
+
+    [data-theme="dark"][data-palette="burgundy"] {
+      --primary: #cf7b8b;
+      --primary-strong: #dc97a4;
+      --primary-soft: #321c21
+    }
+
+    [data-theme="dark"][data-palette="forest"] {
+      --primary: #6fb277;
+      --primary-strong: #8bc391;
+      --primary-soft: #1b2c1d
+    }
+
+    [data-theme="dark"][data-palette="terracotta"] {
+      --primary: #d68f6b;
+      --primary-strong: #e0a484;
+      --primary-soft: #2e2018
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%
+    }
+
+    body {
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 17px;
+      -webkit-user-select: none;
+      user-select: none;
+      -webkit-touch-callout: none;
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    summary:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 3px;
+      border-radius: 3px
+    }
+
+    .progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0;
+      z-index: 200;
+      background: var(--primary)
+    }
+
+    .topbar {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 58px;
+      z-index: 150;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      align-items: center;
+      gap: .4rem;
+      padding: 0 .7rem
+    }
+
+    .topbar-brand {
+      flex: 1;
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.05rem
+    }
+
+    .icon-btn {
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      background: transparent;
+      color: var(--text-soft);
+      border-radius: 8px;
+      cursor: pointer
+    }
+
+    .icon-btn:hover {
+      background: var(--surface-2);
+      color: var(--text)
+    }
+
+    .icon-btn svg {
+      width: 22px;
+      height: 22px
+    }
+
+    .ic-menu {
+      display: block
+    }
+
+    .ic-x {
+      display: none
+    }
+
+    #menuBtn.is-open .ic-menu {
+      display: none
+    }
+
+    #menuBtn.is-open .ic-x {
+      display: block
+    }
+
+    .ic-sun {
+      display: none
+    }
+
+    .ic-moon {
+      display: block
+    }
+
+    [data-theme="dark"] .ic-sun {
+      display: block
+    }
+
+    [data-theme="dark"] .ic-moon {
+      display: none
+    }
+
+    .overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 17, 14, .5);
+      z-index: 120;
+      opacity: 0;
+      transition: opacity .2s ease
+    }
+
+    .overlay.show {
+      display: block;
+      opacity: 1
+    }
+
+    .layout {
+      display: flex;
+      align-items: flex-start
+    }
+
+    .sidebar {
+      width: 300px;
+      flex-shrink: 0;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      z-index: 130;
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden
+    }
+
+    .side-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 1.4rem 1rem
+    }
+
+    .brand {
+      display: flex;
+      align-items: flex-start;
+      gap: .7rem;
+      min-width: 0
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 9px;
+      flex-shrink: 0;
+      background: var(--primary);
+      color: var(--surface);
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    .brand-mark svg {
+      width: 22px;
+      height: 22px
+    }
+
+    .brand-text strong {
+      display: block;
+      font-size: 1.1rem;
+      font-weight: 600;
+      line-height: 1.15
+    }
+
+    .brand-text span {
+      font-size: .76rem;
+      color: var(--text-mute)
+    }
+
+    .side-tools {
+      padding: .2rem 1.4rem .7rem;
+      display: flex;
+      gap: .5rem
+    }
+
+    .theme-toggle {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      padding: .55rem .5rem;
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      border-radius: 8px;
+      cursor: pointer;
+      color: var(--text-soft);
+      font: inherit;
+      font-size: .82rem;
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden
+    }
+
+    .theme-toggle:hover {
+      color: var(--text);
+      border-color: var(--primary)
+    }
+
+    .theme-toggle svg {
+      width: 17px;
+      height: 17px;
+      flex-shrink: 0
+    }
+
+    .swatch {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: var(--primary);
+      flex-shrink: 0
+    }
+
+    .a11y-btn {
+      height: 32px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0 10px;
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      color: var(--text-soft);
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: .8rem;
+      font-family: inherit
+    }
+
+    .a11y-btn svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0
+    }
+
+    .a11y-btn:hover {
+      color: var(--text);
+      border-color: var(--primary)
+    }
+
+    .a11y-btn[aria-expanded="true"] {
+      color: var(--primary);
+      border-color: var(--primary)
+    }
+
+    .a11y-panel {
+      position: absolute;
+      bottom: calc(100% + 6px);
+      right: 1rem;
+      width: min(240px, calc(100vw - 3.5rem));
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      box-shadow: var(--shadow-lg);
+      padding: .3rem;
+      display: none;
+      z-index: 20
+    }
+
+    .a11y-panel.show {
+      display: block
+    }
+
+    .a11y-panel-title {
+      font-size: .72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: var(--text-mute);
+      padding: .4rem .55rem .3rem
+    }
+
+    .a11y-opt {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      width: 100%;
+      padding: .5rem .55rem;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      color: var(--text-soft);
+      font: inherit;
+      font-size: .85rem;
+      border-radius: 6px;
+      text-align: left
+    }
+
+    .a11y-opt:hover {
+      background: var(--surface-2);
+      color: var(--text)
+    }
+
+    .a11y-opt span:first-child {
+      flex: 1
+    }
+
+    .a11y-sw {
+      width: 34px;
+      height: 20px;
+      border-radius: 999px;
+      background: var(--border);
+      position: relative;
+      flex-shrink: 0;
+      transition: background .15s ease
+    }
+
+    .a11y-sw::after {
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #fff;
+      transition: transform .15s ease
+    }
+
+    .a11y-opt[aria-pressed="true"] .a11y-sw {
+      background: var(--primary)
+    }
+
+    .a11y-opt[aria-pressed="true"] .a11y-sw::after {
+      transform: translateX(14px)
+    }
+
+    html.a11y-contrast {
+      --text: #000;
+      --text-soft: #000;
+      --text-mute: #333;
+      --bg: #fff;
+      --surface: #fff;
+      --border: #000
+    }
+
+    html.a11y-contrast[data-theme="dark"] {
+      --text: #fff;
+      --text-soft: #fff;
+      --text-mute: #ccc;
+      --bg: #000;
+      --surface: #000;
+      --border: #fff
+    }
+
+    html.a11y-bold body {
+      font-weight: 600
+    }
+
+    html.a11y-bold .toc a,
+    html.a11y-bold .theme-toggle,
+    html.a11y-bold .a11y>summary,
+    html.a11y-bold .a11y-opt {
+      font-weight: 600
+    }
+
+    html.a11y-bold h1,
+    html.a11y-bold h2,
+    html.a11y-bold h3 {
+      font-weight: 700
+    }
+
+    html.a11y-bold .article strong {
+      font-weight: 700
+    }
+
+    html.a11y-upper .toc a,
+    html.a11y-upper h1,
+    html.a11y-upper h2,
+    html.a11y-upper h3,
+    html.a11y-upper .topbar-brand,
+    html.a11y-upper .article p,
+    html.a11y-upper .article li,
+    html.a11y-upper .article td,
+    html.a11y-upper .article th {
+      text-transform: uppercase
+    }
+
+    html.a11y-nosym .callout svg {
+      display: none
+    }
+
+    html.a11y-nosym .brand-mark {
+      display: none
+    }
+
+    html.a11y-nosym .faq .chev {
+      display: none
+    }
+
+    html.a11y-nosym .faq summary::after {
+      content: "+";
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--primary);
+      flex-shrink: 0;
+      line-height: 1
+    }
+
+    html.a11y-nosym .faq[open] summary::after {
+      content: "-"
+    }
+
+    .toc {
+      flex: 1;
+      overflow-y: auto;
+      padding: .3rem .8rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1px
+    }
+
+    .toc a {
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+      padding: .55rem .7rem;
+      border-radius: 7px;
+      color: var(--text-soft);
+      text-decoration: none;
+      font-size: .92rem;
+      font-weight: 500
+    }
+
+    .toc a:hover {
+      background: var(--surface-2);
+      color: var(--text)
+    }
+
+    .toc a.active {
+      background: var(--primary-soft);
+      color: var(--primary-strong);
+      font-weight: 600
+    }
+
+    .toc-num {
+      width: 1.65rem;
+      height: 1.65rem;
+      flex-shrink: 0;
+      border-radius: 6px;
+      background: var(--surface-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .78rem;
+      font-weight: 600;
+      color: var(--text-mute)
+    }
+
+    .toc a.active .toc-num {
+      background: var(--primary);
+      color: var(--surface)
+    }
+
+    .toc a span:last-child {
+      line-height: 1.3
+    }
+
+    .side-foot {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .5rem;
+      padding: .55rem 1rem .55rem 1.4rem;
+      font-size: .78rem;
+      color: var(--text-mute);
+      border-top: 1px solid var(--border)
+    }
+
+    .main {
+      flex: 1;
+      min-width: 0
+    }
+
+    .hero {
+      color: #f3f3ee;
+      background: var(--hero);
+      text-align: center;
+      padding: clamp(3.2rem, 8vw, 5.5rem) clamp(1.5rem, 5vw, 4rem)
+    }
+
+    .hero-inner {
+      max-width: 820px;
+      margin: 0 auto
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.1rem);
+      font-weight: 600;
+      line-height: 1.16;
+      letter-spacing: -.015em
+    }
+
+    .hero-sub {
+      margin: 1.05rem auto 0;
+      font-size: clamp(1rem, 2.3vw, 1.18rem);
+      font-weight: 300;
+      color: rgba(255, 255, 255, .82);
+      max-width: 46ch
+    }
+
+    .pill {
+      display: inline-block;
+      margin-top: 1.6rem;
+      background: rgba(255, 255, 255, .1);
+      border: 1px solid rgba(255, 255, 255, .22);
+      padding: .4rem .9rem;
+      border-radius: 6px;
+      font-size: .85rem;
+      font-weight: 500
+    }
+
+    .hero-icons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.2rem 2.4rem;
+      margin-top: 2.4rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, .13)
+    }
+
+    .hero-icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .5rem
+    }
+
+    .hero-icon svg {
+      width: 28px;
+      height: 28px;
+      opacity: .88
+    }
+
+    .hero-icon span {
+      font-size: .67rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, .6);
+      letter-spacing: .06em;
+      text-transform: uppercase
+    }
+
+    .article {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 1rem clamp(1.3rem, 5vw, 3rem) 3rem
+    }
+
+    .article section {
+      padding-top: 2.8rem;
+      scroll-margin-top: 1.5rem
+    }
+
+    .article section+section {
+      border-top: 1px solid var(--border);
+      margin-top: 1.6rem
+    }
+
+    h2 {
+      display: flex;
+      align-items: center;
+      gap: .85rem;
+      font-size: clamp(1.4rem, 3.2vw, 1.9rem);
+      font-weight: 600;
+      letter-spacing: -.01em;
+      line-height: 1.2;
+      margin-bottom: 1.3rem
+    }
+
+    .sec-num {
+      flex-shrink: 0;
+      width: 2.3rem;
+      height: 2.3rem;
+      border-radius: 7px;
+      background: var(--primary);
+      color: var(--surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      font-weight: 600
+    }
+
+    h3 {
+      font-size: 1.18rem;
+      font-weight: 600;
+      margin: 2rem 0 .7rem;
+      padding-left: .8rem;
+      border-left: 3px solid var(--primary);
+      line-height: 1.35
+    }
+
+    .article p {
+      margin: .95rem 0;
+      color: var(--text)
+    }
+
+    .article strong {
+      font-weight: 600
+    }
+
+    .article em {
+      font-style: italic
+    }
+
+    code {
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      font-size: .86em;
+      background: var(--code-bg);
+      color: var(--primary-strong);
+      padding: .13em .42em;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      word-break: break-word
+    }
+
+    .article ul {
+      padding-left: 1.2rem;
+      margin: 1.05rem 0
+    }
+
+    .article ol {
+      list-style: none;
+      counter-reset: step;
+      margin: 1.05rem 0
+    }
+
+    .article ol li {
+      counter-increment: step;
+      position: relative;
+      padding-left: 2.9rem;
+      margin: .7rem 0
+    }
+
+    .article ol li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: .06rem;
+      width: 1.8rem;
+      height: 1.8rem;
+      background: var(--primary-soft);
+      color: var(--primary-strong);
+      border-radius: 6px;
+      font-size: .85rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    .callout {
+      display: flex;
+      gap: .9rem;
+      margin: 1.7rem 0;
+      padding: 1.1rem 1.25rem;
+      background: var(--warn-soft);
+      border: 1px solid var(--warn-border);
+      border-left: 3px solid var(--warn);
+      border-radius: 8px
+    }
+
+    .callout svg {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+      color: var(--warn);
+      margin-top: .15rem
+    }
+
+    .callout-title {
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--warn);
+      margin-bottom: .2rem
+    }
+
+    .callout p {
+      margin: 0;
+      color: var(--text)
+    }
+
+    .table-wrap {
+      margin: 1.4rem 0;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--surface)
+    }
+
+    thead th {
+      background: var(--surface-2);
+      color: var(--text);
+      text-align: left;
+      padding: .85rem 1.05rem;
+      font-size: .82rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .04em
+    }
+
+    tbody td {
+      padding: .9rem 1.05rem;
+      border-top: 1px solid var(--border);
+      vertical-align: top;
+      color: var(--text);
+      font-size: .95rem
+    }
+
+    tbody td:first-child {
+      font-weight: 600;
+      white-space: nowrap
+    }
+
+    tbody tr:hover {
+      background: var(--surface-2)
+    }
+
+    .faq {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+      margin: .7rem 0;
+      overflow: hidden
+    }
+
+    .faq summary {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      padding: 1rem 1.2rem;
+      cursor: pointer;
+      font-weight: 600;
+      list-style: none
+    }
+
+    .faq summary::-webkit-details-marker {
+      display: none
+    }
+
+    .faq summary::marker {
+      content: ""
+    }
+
+    .faq summary .q {
+      flex: 1;
+      line-height: 1.4
+    }
+
+    .faq summary .chev {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      color: var(--primary);
+      transition: transform .2s ease
+    }
+
+    .faq[open] summary .chev {
+      transform: rotate(180deg)
+    }
+
+    .faq[open] summary {
+      border-bottom: 1px solid var(--border)
+    }
+
+    .faq-body {
+      padding: .5rem 1.2rem 1.1rem
+    }
+
+    .faq-body p:first-child {
+      margin-top: .6rem
+    }
+
+    .foot {
+      max-width: 820px;
+      margin: 2rem auto 0;
+      padding: 2rem clamp(1.3rem, 5vw, 3rem) 4rem;
+      border-top: 1px solid var(--border);
+      text-align: center
+    }
+
+    .foot p {
+      color: var(--text-mute);
+      font-style: normal;
+      font-size: .92rem
+    }
+
+    p.foot-author {
+      font-style: normal;
+      color: var(--text-soft);
+      font-weight: 500;
+      margin-top: .25rem
+    }
+
+    .to-top {
+      position: fixed;
+      right: 1.3rem;
+      bottom: 1.3rem;
+      width: 46px;
+      height: 46px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      z-index: 110;
+      background: var(--primary);
+      color: var(--surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-lg);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: opacity .2s ease, transform .2s ease, visibility .2s ease
+    }
+
+    .to-top svg {
+      width: 22px;
+      height: 22px
+    }
+
+    .to-top.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0)
+    }
+
+    @media (max-width:999px) {
+      .topbar {
+        display: flex
+      }
+
+      .sidebar {
+        position: fixed;
+        top: 58px;
+        left: 0;
+        bottom: 0;
+        height: auto;
+        transform: translateX(-100%);
+        transition: transform .25s ease;
+        box-shadow: var(--shadow-lg)
+      }
+
+      .sidebar.open {
+        transform: translateX(0)
+      }
+
+      .main {
+        padding-top: 58px
+      }
+
+      .article section {
+        scroll-margin-top: 74px
+      }
+    }
+
+    @media (max-width:640px) {
+      body {
+        font-size: 16px
+      }
+
+      .table-wrap {
+        border: none;
+        border-radius: 0
+      }
+
+      table,
+      tbody,
+      tr,
+      td {
+        display: block;
+        width: 100%
+      }
+
+      thead {
+        display: none
+      }
+
+      tbody tr {
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        margin-bottom: .85rem;
+        background: var(--surface);
+        overflow: hidden
+      }
+
+      tbody tr:hover {
+        background: var(--surface)
+      }
+
+      tbody td {
+        border: none;
+        padding: .65rem 1rem
+      }
+
+      tbody td:first-child {
+        white-space: normal;
+        background: var(--surface-2);
+        color: var(--text);
+        font-size: 1rem;
+        padding: .7rem 1rem
+      }
+
+      tbody td:not(:first-child)::before {
+        content: attr(data-label);
+        display: block;
+        font-size: .72rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: .05em;
+        color: var(--text-mute);
+        margin-bottom: .15rem
+      }
+
+      tbody td+td {
+        border-top: 1px solid var(--border)
+      }
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+      html {
+        scroll-behavior: auto
+      }
+
+      * {
+        transition: none !important
+      }
+    }
+
+    @media print {
+
+      .progress,
+      .topbar,
+      .overlay,
+      .sidebar,
+      .to-top {
+        display: none !important
+      }
+
+      .main {
+        padding: 0 !important
+      }
+
+      .hero {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact
+      }
+
+      .faq,
+      .table-wrap {
+        break-inside: avoid
+      }
+
+      body {
+        background: #fff
+      }
+    }
+    .h3-sweep span {
+      position: relative;
+      display: inline-block;
+    }
+    .h3-sweep span::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: color-mix(in srgb, var(--primary) 35%, transparent);
+      z-index: -1;
+      animation: h3-sweep 19s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes h3-sweep {
+      0%   { clip-path: inset(0 100% 0 0); }
+      11%  { clip-path: inset(0 0% 0 0); }
+      63%  { clip-path: inset(0 0% 0 0); }
+      74%  { clip-path: inset(0 0% 0 100%); }
+      100% { clip-path: inset(0 0% 0 100%); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div hidden>
+    <a href="repository.loiolink-1.0.0.zip">repository.loiolink-1.0.0.zip</a>
+    <a href="addons.xml">addons.xml</a>
+    <a href="addons.xml.md5">addons.xml.md5</a>
+  </div>
+
+  <div class="progress" id="progress"></div>
+
+  <header class="topbar">
+    <button class="icon-btn" id="menuBtn" aria-label="Abrir o cerrar el índice" aria-expanded="false">
+      <svg class="ic-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        aria-hidden="true">
+        <path d="M4 7h16M4 12h16M4 17h16" />
+      </svg>
+      <svg class="ic-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        aria-hidden="true">
+        <path d="M6 6l12 12M18 6L6 18" />
+      </svg>
+    </button>
+    <span class="topbar-brand">loiolink</span>
+    <button class="icon-btn theme-btn" aria-label="Cambiar tema">
+      <svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+      </svg>
+      <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="4" />
+        <path
+          d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+      </svg>
+    </button>
+  </header>
+
+  <div class="overlay" id="overlay"></div>
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="side-head">
+        <div class="brand">
+          <div class="brand-mark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" aria-hidden="true">
+              <path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7" />
+              <path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7" />
+            </svg>
+          </div>
+          <div class="brand-text">
+            <strong>loiolink</strong>
+            <span>Guía de usuario</span>
+          </div>
+        </div>
+        <button class="icon-btn" id="shareGuideBtn" aria-label="Descargar guía">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+          </svg>
+        </button>
+      </div>
+      <div class="side-tools">
+        <button class="theme-toggle theme-btn">
+          <svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+          <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path
+              d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+          </svg>
+          <span class="theme-label">Oscuro</span>
+        </button>
+        <button class="theme-toggle palette-btn" id="paletteBtn" aria-label="Cambiar paleta de color">
+          <span class="swatch"></span>
+          <span class="palette-label">Teal</span>
+        </button>
+      </div>
+      <nav class="toc" aria-label="Índice">
+        <a href="#s1"><span class="toc-num">1</span><span>Qué es loiolink</span></a>
+        <a href="#s2"><span class="toc-num">2</span><span>Instalar Kodi</span></a>
+        <a href="#s3"><span class="toc-num">3</span><span>Instalar loiolink</span></a>
+        <a href="#s4"><span class="toc-num">4</span><span>El asistente de configuración inicial</span></a>
+        <a href="#s5"><span class="toc-num">5</span><span>Conectar un dispositivo</span></a>
+        <a href="#s6"><span class="toc-num">6</span><span>El panel de control web</span></a>
+        <a href="#s7"><span class="toc-num">7</span><span>La biblioteca en el navegador</span></a>
+        <a href="#s8"><span class="toc-num">8</span><span>El menú de loiolink en Kodi</span></a>
+        <a href="#s9"><span class="toc-num">9</span><span>El explorador de archivos y el gestor de fuentes</span></a>
+        <a href="#s10"><span class="toc-num">10</span><span>Accesibilidad</span></a>
+        <a href="#s11"><span class="toc-num">11</span><span>Ajustes</span></a>
+        <a href="#s12"><span class="toc-num">12</span><span>Solución de problemas</span></a>
+      </nav>
+      <div class="side-foot">
+        <span>Versión 0.3.1</span>
+        <button class="a11y-btn" id="a11yBtn" aria-label="Opciones de accesibilidad" aria-expanded="false"
+          title="Accesibilidad">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="9.5" />
+            <circle cx="12" cy="7" r="1.1" fill="currentColor" stroke="none" />
+            <path d="M5.7 9.6h12.6M12 9.6v6M12 15.6l-2.8 3.9M12 15.6l2.8 3.9" />
+          </svg>
+          <span>Accesibilidad</span>
+        </button>
+        <div class="a11y-panel" id="a11yPanel">
+          <div class="a11y-panel-title">Accesibilidad</div>
+          <button class="a11y-opt" data-a11y="contrast" aria-pressed="false"><span>Alto contraste</span><span
+              class="a11y-sw"></span></button>
+          <button class="a11y-opt" data-a11y="bold" aria-pressed="false"><span>Negrita forzada</span><span
+              class="a11y-sw"></span></button>
+          <button class="a11y-opt" data-a11y="upper" aria-pressed="false"><span>Texto en mayúsculas</span><span
+              class="a11y-sw"></span></button>
+          <button class="a11y-opt" data-a11y="nosym" aria-pressed="false"><span>Sustituir símbolos</span><span
+              class="a11y-sw"></span></button>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <section class="hero">
+        <div class="hero-inner">
+          <h1>Guía de usuario de loiolink</h1>
+          <p class="hero-sub">Cómo instalar Kodi y loiolink, y cómo controlar Kodi desde el móvil o el ordenador.</p>
+          <span class="pill">Versión 0.3.1</span>
+          <div class="hero-icons">
+            <div class="hero-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="11" width="18" height="10" rx="2"/>
+                <polyline points="8 7 12 11 16 7"/>
+                <line x1="12" y1="3" x2="12" y2="11"/>
+              </svg>
+              <span>Instalar</span>
+            </div>
+            <div class="hero-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="8" y="2" width="8" height="20" rx="3"/>
+                <line x1="12" y1="7" x2="12" y2="11"/><line x1="10" y1="9" x2="14" y2="9"/>
+                <circle cx="12" cy="15" r="1.2" fill="currentColor" stroke="none"/>
+                <circle cx="10" cy="18" r=".85" fill="currentColor" stroke="none"/>
+                <circle cx="14" cy="18" r=".85" fill="currentColor" stroke="none"/>
+              </svg>
+              <span>Mando</span>
+            </div>
+            <div class="hero-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="17 8 12 3 7 8"/>
+                <line x1="12" y1="3" x2="12" y2="15"/>
+              </svg>
+              <span>Subida</span>
+            </div>
+            <div class="hero-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+              </svg>
+              <span>Archivos</span>
+            </div>
+            <div class="hero-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+              <span>Gestionar</span>
+            </div>
+            <div class="hero-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <polyline points="9 12 11 14 15 10"/>
+              </svg>
+              <span>Backup</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <article class="article">
+
+        <section id="s1">
+          <h2><span class="sec-num">1</span>Qué es loiolink</h2>
+          <p>¿Cuánto tardas en escribir una búsqueda en Kodi con el mando de la tele? Con loiolink, todo eso se hace en cosa de segundos desde el navegador de internet.</p>
+          <p>Para emparejar, Kodi muestra un código QR; al escanearlo, el panel queda abierto en pocos segundos. Si el dispositivo no tiene cámara, hay también un código numérico corto que se puede introducir a mano. Lo mismo sirve con el móvil de un invitado, sin pedirle que instale nada ni cree cuentas. El único requisito real es que el dispositivo y Kodi compartan la misma red local (WiFi o cable).</p>
+          <p>Para mandar vídeos y enlaces de internet al televisor, basta con compartir la URL. Kodi la recibe y empieza a reproducirla al momento. Todo ocurre dentro de la red local.</p>
+          <h3 class="h3-sweep"><span>Funciones principales</span></h3>
+          <ul>
+            <li><strong>Mando a distancia completo</strong>: navegar por los menús, reproducir, pausar, regular el
+              volumen, cambiar la pista de audio o los subtítulos, igual que con el mando físico.</li>
+            <li><strong>Teclado cómodo</strong>: escribir búsquedas largas o URLs en el dispositivo y verlas aparecer
+              al instante en la televisión, sin teclado en pantalla.</li>
+            <li><strong>Pegar en buscadores de Kodi</strong>: en cualquier addon con buscador, la opción
+              <em>Pegar (loiolink)</em> del menú contextual inserta el texto enviado desde el dispositivo, sin tener
+              que abrir el panel. El mismo menú también tiene <em>Copiar a loiolink</em>, que copia el nombre del
+              elemento seleccionado en Kodi al portapapeles de loiolink.</li>
+            <li><strong>Biblioteca en el navegador</strong>: explorar la colección de películas, series y música, y
+              reproducirla en la pantalla grande o en el propio dispositivo.</li>
+            <li><strong>Envío de contenido</strong>: mandar vídeos y audio de internet, retransmisiones en directo,
+              M3U, enlaces magnet, torrent o AceStream para que Kodi los empiece a reproducir.</li>
+            <li><strong>Instalación de addons y repositorios</strong>: enviar archivos <code>.zip</code> de addons o
+              repositorios desde el dispositivo para instalarlos en Kodi al instante, sin pasar por el explorador de
+              archivos de la televisión.</li>
+            <li><strong>Instalación de APKs</strong>: en dispositivos Android TV o Fire TV, enviar un
+              <code>.apk</code> y lanzar su instalación directamente desde el navegador.</li>
+            <li><strong>Subida de archivos</strong>: transferir fotografías, canciones, vídeos o cualquier otro archivo
+              al almacenamiento de Kodi a través de la red local.</li>
+            <li><strong>Explorador de archivos y fuentes</strong>: gestionar las fuentes de contenido de Kodi y navegar
+              por el sistema de archivos desde el panel web.</li>
+            <li><strong>Apagado y reinicio</strong>: cerrar Kodi, apagar el equipo, suspenderlo o reiniciarlo desde el
+              panel, sin tener que usar el mando.</li>
+            <li><strong>Copia de seguridad</strong>: guardar en un archivo los addons instalados, los repositorios,
+              las fuentes y los favoritos, para migrar a otro equipo o recuperarte de una reinstalación.</li>
+          </ul>
+          <h3>Compatibilidad</h3>
+          <p>El addon es compatible con Kodi 19 (Matrix) y versiones posteriores. Funciona
+            en cualquier sistema (Windows, Linux, macOS, Android TV, Fire TV, etc). No requiere permisos de
+            administrador, ni root, ni abrir puertos en el router.</p>
+          <h3>loiolink dentro de loioloio</h3>
+          <p>Forma parte del ecosistema loioloio. El nombre tiene su lógica (las letras están juntas en el teclado, se escribe enseguida y de paso parece código binario). Los otros addons son:</p>
+          <ul>
+            <li><strong>StreamNinja</strong>: permite enviar URLs a Kodi desde un móvil o PC mediante una web local efímera, o bien recibirlas directamente desde otros addons. Soporta Dailymotion, YouTube, AceStream, torrents y casi cualquier enlace de vídeo.</li>
+            <li><strong>Flow FavManager</strong>: mejora la experiencia de gestión de favoritos en Kodi. Permite organizarlos, personalizar su apariencia y las acciones que realizan. Incluye herramientas de copia de seguridad, un editor intuitivo, perfiles y ordenación por secciones, entre otras funciones.</li>
+            <li><strong>LoioLog</strong>: visualiza y busca en el log de Kodi con un visor de colores por severidad. Filtra por addon, texto o expresiones regulares. Exporta a TXT o JSON, comparte el log subiendo a internet o ábrelo en el móvil desde tu red local. Consulta estadísticas del log, compara errores entre sesiones y gestiona los logs anteriores.</li>
+          </ul>
+          <p>Ninguno hace falta para usar loiolink, pero todos pueden instalarse desde el propio addon en Información &gt; loioloio addons. Más información en <a href="https://loiolo.io" target="_blank" rel="noopener">loiolo.io</a>.</p>
+        </section>
+
+        <section id="s2">
+          <h2><span class="sec-num">2</span>Instalar Kodi</h2>
+          <p>El addon funciona dentro de Kodi, así que el primer paso es tener Kodi instalado. Kodi es un programa
+            gratuito y de código abierto, y su única descarga oficial está en <strong>kodi.tv/download</strong>.
+            Conviene descargar siempre desde ahí, elegir la última versión estable y desconfiar de cualquier otra web.
+            Hace falta Kodi 19 o posterior, algo que cualquier versión actual cumple de sobra.</p>
+          <p>En la página de descargas se elige primero el tipo de aparato. A partir de ahí, los pasos cambian un poco
+            según la plataforma.</p>
+          <h3>Windows</h3>
+          <p>Hay dos formas. La más cómoda es instalar Kodi desde la Microsoft Store, que además se encarga de
+            mantenerlo actualizado. La otra es descargar el instalador (un archivo con extensión <code>.exe</code>)
+            desde kodi.tv, abrirlo y seguir los pasos, como con cualquier otro programa. En un equipo moderno conviene
+            la versión de 64 bits.</p>
+          <h3>macOS</h3>
+          <p>En un Mac se descarga desde kodi.tv un archivo con extensión <code>.dmg</code>; hay una versión para los
+            Mac con procesador Intel y otra para los de chip Apple. Al abrir el archivo aparece una ventana con el icono
+            de Kodi y la carpeta Aplicaciones; basta con arrastrar el primero sobre la segunda.</p>
+          <h3>Linux</h3>
+          <p>En Linux el método varía según la distribución, ya sea un repositorio oficial, el paquete Flatpak o la
+            compilación desde el código fuente. La página kodi.tv/download/linux indica cuál corresponde en cada caso.
+          </p>
+          <h3>Android: móviles y tablets</h3>
+          <p>En un teléfono o una tablet con Android, lo más sencillo es buscar Kodi en la tienda Google Play e
+            instalarlo desde ahí, comprobando que sea la aplicación oficial y no una imitación. Como alternativa, puede
+            descargarse el archivo de instalación (<code>.apk</code>) desde kodi.tv e instalarlo a mano.</p>
+          <h3>Android TV y Google TV</h3>
+          <p>En los televisores y reproductores con Android TV o Google TV, Kodi está en la tienda Google Play. Se busca
+            y se instala como cualquier otra aplicación, comprobando que sea la versión oficial.</p>
+          <h3>Amazon Fire TV</h3>
+          <p>Los dispositivos Fire TV de Amazon son un caso especial. Antes de nada, hay que tener presente una
+            limitación importante. En sus modelos más recientes (lanzados a partir de finales de 2025), Amazon fabrica
+            parte de sus dispositivos con un sistema operativo propio,
+            llamado Vega OS, que no admite la instalación de aplicaciones externas. En un Fire TV con Vega OS no se
+            puede instalar Kodi de ninguna forma.</p>
+          <p>Los Fire TV basados en Android, anteriores a ese cambio, sí lo
+            permiten; quien vaya a comprar un aparato nuevo para usar Kodi debe asegurarse de que no funcione con Vega
+            OS.</p>
+          <p>En un Fire TV basado en Android, Kodi no está en la tienda de aplicaciones, así que se instala a mano:</p>
+          <ol>
+            <li>Abrir Ajustes → Mi Fire TV → Acerca de y pulsar siete veces seguidas sobre el nombre del dispositivo.
+              Aparecerá un apartado nuevo, "Opciones de desarrollador".</li>
+            <li>Desde la tienda de Amazon, instalar la aplicación gratuita Downloader.</li>
+            <li>Volver a Ajustes → Mi Fire TV → Opciones de desarrollador. Entrar en "Instalar aplicaciones
+              desconocidas"
+              y activar el permiso para "Downloader" (si tu modelo es más antiguo, verás directamente "Aplicaciones de
+              origen desconocido", un único interruptor que simplemente debes activar).</li>
+            <li>Abrir Downloader, ir a kodi.tv/download, elegir Android y descargar la versión para procesadores ARM de
+              32 bits.</li>
+            <li>Cuando termine la descarga, Downloader ofrecerá instalar el archivo.</li>
+          </ol>
+          <h3>Otras plataformas</h3>
+          <p>Kodi funciona también en otros aparatos. En una Raspberry Pi lo habitual es instalar LibreELEC, un sistema
+            operativo ligero creado para ejecutar Kodi. En las consolas Xbox, Kodi se instala desde la Microsoft Store.
+            En el iPhone y en el Apple TV no existe una instalación sencilla para el usuario corriente, por lo que
+            quedan fuera de esta guía.</p>
+        </section>
+
+        <section id="s3">
+          <h2><span class="sec-num">3</span>Instalar loiolink</h2>
+          <p>Con Kodi ya en marcha, el siguiente paso es instalar loiolink. Hay dos maneras de hacerlo. La recomendada
+            es añadir el repositorio, porque así las actualizaciones llegan después automáticamente. La otra, instalar
+            el archivo ZIP directamente, es más rápida pero obliga a repetir el proceso a mano con cada versión nueva.
+          </p>
+          <p>Antes de empezar: si Kodi tiene bloqueada la instalación desde orígenes desconocidos, hay que activarla en
+            Ajustes → Sistema → Add-ons → "Orígenes desconocidos". Sin eso, el proceso se detendrá a mitad.</p>
+          <h3>Con el repositorio (recomendado)</h3>
+          <ol>
+            <li>En Kodi, ir a Ajustes → Explorador de archivos → Añadir fuente.</li>
+            <li>Pulsar sobre "&lt;Ninguno&gt;" e introducir esta dirección, copiada con exactitud:
+              <code>https://loiolo.io/</code>, o también vale <code>https://espatv.github.io/loiolink/</code>.
+              Dar a la fuente el nombre <code>loiolink</code> y aceptar.
+            </li>
+            <li>Volver al menú principal, entrar en Add-ons y pulsar el icono de la caja abierta, arriba a la izquierda.
+              Elegir "Instalar desde archivo zip".</li>
+            <li>Seleccionar la fuente <code>loiolink</code> y, dentro de ella, el archivo
+              <code>repository.loiolink-1.0.0.zip</code>.
+            </li>
+            <li>Cuando aparezca el aviso "Add-on instalado", elegir "Instalar desde repositorio" → "loiolink Repository"
+              → "Add-ons de programa" → "loiolink" → "Instalar".</li>
+          </ol>
+          <h3>Con el archivo ZIP</h3>
+          <p>Misma instalación que con el repositorio, pero descargando el ZIP directamente, sin configurar ninguna
+            fuente en Kodi.</p>
+          <ol>
+            <li>Descargar <code>repository.loiolink-1.0.0.zip</code> desde
+              <code>github.com/espatv/loiolink/releases</code>.</li>
+            <li>En Kodi, entrar en Add-ons, pulsar el icono de la caja abierta y elegir "Instalar desde archivo zip".
+            </li>
+            <li>Seleccionar el archivo descargado.</li>
+            <li>Continuar como en el paso 5 del método anterior: cuando aparezca "Add-on instalado", elegir "Instalar
+              desde repositorio" → "loiolink Repository" → "Add-ons de programa" → "loiolink" → "Instalar".</li>
+          </ol>
+          <p>Las actualizaciones automáticas funcionan igual que con el método del repositorio.</p>
+          <p>Si en lugar del repo descargas e instalas el addon directamente
+            (<code>plugin.program.loiolink-*.zip</code>), loiolink funciona pero no recibirás actualizaciones
+            automáticas al no tener el repositorio instalado.</p>
+          <p>Una vez instalado, queda disponible en la sección de Add-ons de Kodi. Antes de empezar a usarlo
+            conviene dedicar un momento a su asistente de configuración, que se explica en el apartado siguiente.</p>
+        </section>
+
+        <section id="s4">
+          <h2><span class="sec-num">4</span>El asistente de configuración inicial</h2>
+          <p>El addon incluye un asistente que lo prepara paso a paso y deja todo listo en menos de un minuto. No se
+            abre solo; hay que lanzarlo desde el menú principal, en Ajustes, donde "Asistente de configuración
+            inicial" es la primera opción. La primera vez que se abre loiolink, el menú destaca "Ajustes" con la
+            indicación IMPORTANTE en color naranja precisamente para señalar que conviene empezar por ahí.</p>
+          <p>Pasar por el asistente es lo más cómodo, aunque no es obligatorio, ya que todo lo que configura puede
+            ajustarse también a mano. Puede ejecutarse las veces que se quiera, así que sirve igual para la primera
+            puesta a punto que para revisar la configuración más adelante. Si en algún paso se pulsa Cancelar o Atrás,
+            el asistente simplemente se cierra.</p>
+          <h3>Bienvenida y comprobación de red</h3>
+          <p>Empieza con una bienvenida y, acto seguido, comprueba que Kodi tenga conexión a la red. Sin WiFi ni cable
+            nada de lo demás puede funcionar, de modo que, si no la hay, el asistente se detiene aquí y pide que se
+            conecte el equipo.</p>
+          <h3>Orígenes desconocidos</h3>
+          <p>Después se ocupa de los "orígenes desconocidos". Kodi viene bloqueado de fábrica para no instalar addons
+            externos, una precaución razonable que, sin embargo, impide aprovechar buena parte de loiolink. El asistente
+            detecta si esa opción está apagada y ofrece activarla con un solo botón, sin obligar a buscarla entre los
+            ajustes de Kodi; si la versión instalada no admite el cambio automático, indica la ruta exacta para hacerlo
+            a mano.</p>
+          <h3>Modo de funcionamiento</h3>
+          <p>A continuación pregunta cómo se quiere usar loiolink. Con la opción recomendada, "siempre activo", el addon
+            mantiene sus servicios en marcha en segundo plano mientras Kodi esté encendido, listos para recibir texto o
+            archivos en cualquier momento. Con "bajo demanda", el servicio que recibe ese contenido se inicia solo
+            cuando se abre la opción "Recibir texto" en la televisión; es la elección pensada para un uso esporádico. El
+            panel de control remoto, en cambio, queda activado en los dos casos.</p>
+          <h3>Permisos en dispositivos Android</h3>
+          <p>Si Kodi funciona sobre un Fire TV Stick, un Chromecast con Google TV o un dispositivo Android similar, el
+            asistente explica además cómo conceder a Kodi el permiso del sistema para instalar aplicaciones
+            <code>.apk</code>. Y termina confirmando que todo está en orden y ofreciendo mostrar directamente el código
+            QR para conectar el primer dispositivo.
+          </p>
+        </section>
+
+        <section id="s5">
+          <h2><span class="sec-num">5</span>Conectar un dispositivo</h2>
+          <p>Para enlazar por primera vez un móvil, una tablet o un ordenador hay que abrir el menú de loiolink en la
+            televisión y entrar en "Controlar Kodi y enviar contenido de forma remota". La pantalla mostrará un código
+            QR y, junto a él, dos maneras de conectarse: el escaneo del código, que es lo más rápido, y un
+            emparejamiento por PIN para cuando lo primero no resulta posible.</p>
+          <h3>Con el código QR</h3>
+          <p>Si el dispositivo tiene cámara, basta con apuntarla al código que aparece en la televisión y pulsar sobre
+            la dirección web que detecte. El navegador se abrirá y cargará el panel de loiolink.</p>
+          <p>No habrá que repetir esta operación. Al conectarse por primera vez, el servidor
+            registra el dispositivo y el navegador guarda el acceso de forma automática, así
+            que conviene guardar la dirección en los marcadores para volver a entrar después
+            con un solo toque.</p>
+          <p>Quien lo desee puede ir un paso más allá. Con el panel abierto,
+            el menú del navegador (los tres puntos en Chrome, el icono de compartir en Safari) ofrece la opción "Añadir
+            a pantalla de inicio" o "Instalar aplicación", que coloca loiolink como un icono más en el dispositivo y lo
+            abre a pantalla completa, sin las barras del navegador. Es algo puramente opcional; el panel funciona
+            igual de bien como una pestaña corriente.</p>
+          <h3>Con un PIN</h3>
+          <p>Cuando la televisión queda lejos, hay poca luz o la cámara no responde bien, el escaneo puede sustituirse
+            por un código numérico:</p>
+          <ol>
+            <li>En la pantalla del código QR, pulsar el botón OK o Enter del mando.</li>
+            <li>La vista cambiará a "Empareja sin escanear".</li>
+            <li>Aparecerán una dirección web sencilla (por ejemplo, <code>http://192.168.1.10:9095</code>) y un PIN de
+              seis cifras.</li>
+            <li>Escribir esa dirección en la barra del navegador del dispositivo.</li>
+            <li>Introducir el PIN de seis cifras en la página que se cargue.</li>
+          </ol>
+          <p>El navegador quedará enlazado al instante. El PIN, pese a su sencillez, es seguro; caduca a los cinco
+            minutos, se invalida si se fallan cinco intentos en menos de un minuto y desaparece en cuanto un dispositivo
+            lo emplea con éxito, de modo que no puede reaprovecharse.</p>
+          <p>Además, si se cierra la ventana de emparejamiento y se vuelve a abrir antes de
+            que el código caduque, se conserva el mismo PIN, así que no se interrumpe a
+            quien lo estuviera tecleando.</p>
+          <div class="callout">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" aria-hidden="true">
+              <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+              <path d="M12 9v4M12 17h.01" />
+            </svg>
+            <div>
+              <div class="callout-title">Importante</div>
+              <p>Para que la conexión funcione, el dispositivo y el equipo de Kodi deben estar en la misma red local,
+                conectados al mismo router, ya sea por WiFi o por cable. Si el dispositivo es un móvil, hay que
+                asegurarse de que esté usando la WiFi de casa y no los datos móviles. Y no debe haber ninguna VPN
+                activa, ni en el dispositivo ni en Kodi, porque las VPN aíslan el tráfico de la red local e impiden que
+                los dispositivos se comuniquen entre sí.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="s6">
+          <h2><span class="sec-num">6</span>El panel de control web</h2>
+          <p>Una vez enlazado el dispositivo, el panel se organiza en cuatro pestañas, señaladas con iconos en la parte
+            superior: Mando, Contenido, Addons y Sistema.</p>
+          <h3>Mando</h3>
+          <p>Cuando Kodi está reproduciendo algo, en la
+            parte superior aparece una tarjeta con la barra de tiempo y los controles habituales, como pausa, salto a lo
+            anterior o lo siguiente, cola de reproducción, modos aleatorio y repetir, volumen y selección de pista de
+            audio o de subtítulos, esta última con un ajuste fino del retardo. Debajo está el mando virtual propiamente
+            dicho, una cruceta con botón OK acompañada de los botones de siempre de Kodi (Atrás, Inicio, Información,
+            menú contextual y subtítulos) y de los controles de volumen. Incluye también accesos directos a
+            los favoritos que se hayan marcado con la estrella en Kodi y dos cuadros que requieren una explicación
+            aparte.</p>
+          <p>El primero sirve para enviar texto, ya sea una búsqueda, una dirección o un enlace
+            magnet. Si en ese momento Kodi tiene abierto un cuadro de búsqueda, el texto se escribe directamente allí y
+            la búsqueda se
+            lanza sola; si no lo tiene, el texto queda guardado para pegarlo más tarde. Cuando un addon abre el teclado
+            de búsqueda en la televisión, el panel muestra automáticamente un cuadro emergente para escribir sin tocar
+            la tele.</p>
+          <p>El segundo cuadro, "Cast URL", sirve para
+            lanzar un vídeo en el reproductor de Kodi a partir de su enlace. Admite
+            direcciones de internet, enlaces magnet (que se reproducen con Elementum, un addon
+            especializado en torrents que loiolink instala cuando hace falta), M3U, M3U8, DASH y
+            enlaces AceStream, si bien estos últimos requieren tener
+            instalado un cliente de AceStream, como Plexus u Horus. También reconoce URLs de
+            YouTube, Twitch, Vimeo, SoundCloud y Dailymotion, y las reproduce a través del addon
+            de Kodi correspondiente, si está instalado.</p>
+          <p>Cast URL no se limita a los enlaces directos. Si lo que se pega es la
+            dirección de una página web normal, loiolink la analiza en busca de vídeos
+            embebidos y, cuando encuentra varios, muestra un pequeño selector para
+            elegir cuál reproducir. Reconoce los iframes de las plataformas habituales
+            (YouTube, Vimeo, Twitch, Rumble, Odysee, VK, OK.ru, Rutube), las etiquetas
+            de vídeo del propio HTML, los reproductores JWPlayer y Flowplayer y los
+            enlaces magnet, .torrent o AceStream que aparezcan en la página.</p>
+          <p>Lo mismo vale para los canales públicos de Telegram. Si la dirección es
+            del tipo <code>https://t.me/canal</code>, loiolink recorre las publicaciones
+            recientes y extrae los vídeos, magnets y enlaces AceStream que se hayan
+            compartido, igual que con cualquier otra página.</p>
+          <p>Si la URL pegada en Cast URL es de un stream HLS, junto al cuadro aparece un botón
+            para grabarlo en disco. Los vídeos bajo demanda terminan solos; las retransmisiones
+            en directo pueden cortarse a la duración máxima fijada en los ajustes de Descargas.
+            Los streams con DRM no pueden grabarse.</p>
+          <p>La grabación puede empezar al momento o programarse para una fecha y hora concretas,
+            hasta con 30 días de antelación. Las programadas aparecen en una lista del propio
+            panel, desde donde pueden cancelarse, y se conservan aunque Kodi se cierre y vuelva
+            a abrirse.</p>
+          <h3>Contenido</h3>
+          <p>La pestaña agrupa lo relacionado con archivos. Desde ella se accede a la
+            biblioteca de Kodi, que por su importancia se trata aparte en el apartado siguiente. También está aquí la
+            herramienta para subir un archivo desde el dispositivo. Se elige o se arrastra el archivo y Kodi decide qué
+            hacer según su tipo. Un vídeo o un audio se reproducen; una imagen se muestra; un archivo
+            <code>.torrent</code> se abre con Elementum; un <code>.apk</code> abre el instalador de Android; y un
+            <code>.zip</code> de un addon o de un repositorio se instala en Kodi. Con los vídeos puede elegirse entre
+            empezar a verlos mientras aún se están subiendo o esperar a
+            que la subida termine, esto último más seguro en conexiones lentas porque
+            permite reanudar la transferencia si se interrumpe.
+          </p>
+          <p>Incluye también un historial de transferencias, la lista de todo lo enviado desde el panel,
+            donde
+            cada entrada puede volver a reproducirse en Kodi, verse en el propio navegador o lanzarse con Elementum.</p>
+          <h3>Addons</h3>
+          <p>Permite pegar la dirección
+            de una fuente o un repositorio (las direcciones desde las que Kodi instala
+            addons) para que loiolink la consulte y muestre su contenido en una ventana,
+            desde la cual pueden instalarse los archivos <code>.zip</code> o añadir la
+            dirección a la lista de fuentes.</p>
+          <p>Incluye también la posibilidad de activar y desactivar a distancia los
+            addons ya instalados, aunque esta función viene apagada de fábrica
+            por prudencia y hay que habilitarla en los ajustes.</p>
+          <h3>Sistema</h3>
+          <p>Reúne las tareas de mantenimiento. Muestra las sesiones
+            activas (cada dispositivo enlazado tiene la suya, y puede renombrarse para reconocerla o revocarse para
+            retirarle el
+            acceso sin afectar a las demás), permite pedir a Kodi que vuelva a escanear la biblioteca o que limpie las
+            entradas que ya no existen, y ofrece un cuadro para enviar un aviso emergente a la televisión.</p>
+          <p>Incluye también herramientas de copia de seguridad. Permite guardar en un archivo los addons instalados,
+            sus repositorios, las fuentes y los favoritos, con la opción de elegir qué se incluye y qué no, y
+            restaurarlo todo después en el mismo equipo o en otro. La copia recoge también el estado de visionado de
+            la biblioteca (las películas y los episodios marcados como vistos y el punto donde se dejaron), de modo
+            que tras una reinstalación se mantiene el progreso. Aunque el archivo se pierda, queda guardado un listado
+            de los addons y sus repositorios que basta para reinstalarlos.</p>
+          <p>Cuenta, además, con un apartado de encendido, con el que apagar,
+            reiniciar, suspender o hibernar el equipo, o cerrar
+            Kodi; igual que la gestión de addons, viene desactivado de fábrica y cada acción pide confirmación. Por
+            último, recoge la lista de atajos de teclado para quienes manejen el panel desde un ordenador.</p>
+          <h3>Continuar en el dispositivo</h3>
+          <p>Cuando Kodi está reproduciendo un vídeo de internet compatible, en lo más alto del panel surge un banner
+            que permite abrir ese mismo contenido en el navegador del dispositivo y seguir viéndolo ahí.</p>
+        </section>
+
+        <section id="s7">
+          <h2><span class="sec-num">7</span>La biblioteca en el navegador</h2>
+          <p>Se abre desde el enlace "Biblioteca de Kodi" de la pestaña Contenido y se reparte en cuatro secciones:
+            Archivos, Películas, Series y Música.</p>
+          <p>Las películas, las series y la música se presentan con sus carátulas, su sinopsis y el punto por el que se
+            dejó la reproducción, tal como se ven en la televisión. Al elegir un título, loiolink pregunta si se desea
+            reproducir en la televisión o ver en el propio dispositivo. La sección de Archivos, algo distinta, sirve
+            para recorrer las fuentes y carpetas configuradas, añadir fuentes nuevas y, dentro de cada carpeta, buscar,
+            ordenar y filtrar.</p>
+          <h3>Requisitos para las carátulas</h3>
+          <p>Para que una película o una serie aparezca con carátula y sinopsis debe estar
+            previamente añadida a la biblioteca de Kodi, es decir, escaneada con un buscador
+            de información, y el panel web remoto tiene que estar activo.</p>
+          <p>Las carátulas requieren además que el servidor HTTP de Kodi esté activo; si no lo está, la
+            propia página de la biblioteca muestra un aviso en la parte superior con el botón "Activar" para encenderlo
+            sin salir del panel. El contenido que solo se tiene como archivos sueltos no figurará en esas secciones,
+            pero sí puede consultarse desde la de Archivos.</p>
+          <h3>Reproducir en el dispositivo</h3>
+          <p>El navegador reproduce sin dificultad los formatos más comunes, como el MP4,
+            pero otros, como el MKV o el AVI, necesitan una conversión al vuelo. De esa conversión se encarga el
+            programa FFmpeg, que no se incluye
+            con el addon; mientras no esté disponible,
+            esos vídeos solo podrán verse en la televisión.</p>
+          <p>Quien quiera habilitar la conversión puede copiar FFmpeg en la carpeta <code>bin</code> del
+            addon o tenerlo instalado en el sistema. En Android suele estar disponible de
+            forma nativa. En Windows, los pasos son:</p>
+          <ol>
+            <li>Descarga una compilación estática desde <code>gyan.dev/ffmpeg/builds</code>
+              (el archivo <code>ffmpeg-git-essentials.7z</code> o <code>.zip</code>).</li>
+            <li>Abre el archivo y entra en la carpeta <code>bin/</code> interna.</li>
+            <li>Copia solo <code>ffmpeg.exe</code> y <code>ffprobe.exe</code> en la carpeta <code>bin</code>
+              del addon; en la mayoría de los equipos está en
+              <code>%APPDATA%\Kodi\addons\plugin.program.loiolink\bin</code>.</li>
+          </ol>
+          <p>No hace falta reiniciar Kodi; en cuanto los archivos estén ahí, la conversión queda disponible.</p>
+        </section>
+
+        <section id="s8">
+          <h2><span class="sec-num">8</span>El menú de loiolink en Kodi</h2>
+          <p>Este menú no se limita a abrir el panel remoto. Reúne también un conjunto de herramientas que conviene
+            conocer.</p>
+          <h3>Recibir texto</h3>
+          <p>"Recibir texto" es un servidor sencillo que muestra un código QR y permite enviar a Kodi, desde otro
+            dispositivo, un texto (una búsqueda, una dirección, un magnet) o un archivo, sin el panel completo. Lo
+            recibido se trata igual que en el panel; el vídeo se reproduce, las imágenes se muestran, los
+            <code>.zip</code> se instalan, y así con cada tipo.
+          </p>
+          <p>Por defecto el QR apunta a la dirección del equipo en la red local, así que ambos dispositivos deben
+            compartir la misma WiFi. En las opciones de "Recibir texto" puede activarse un modo alternativo que pasa
+            el texto por un servicio externo gratuito; así llega desde cualquier sitio, sin importar la red. Los
+            archivos y el panel completo siguen necesitando la red local.</p>
+          <h3>Portapapeles</h3>
+          <p>Tres opciones giran en torno al portapapeles. "Importar texto del
+            portapapeles" recoge lo que se tenga copiado en el ordenador, sea de un
+            navegador, del bloc de notas o de cualquier programa. Si es un enlace magnet lo
+            abre con Elementum, si es un enlace AceStream lo reproduce, y si es texto normal
+            lo guarda para pegarlo después en cualquier buscador de Kodi (en Android esta
+            función puede no estar disponible, porque el sistema no da acceso al
+            portapapeles).</p>
+          <p>"Portapapeles interno" abre un pequeño submenú desde el que se puede ver lo que
+            loiolink tiene guardado en ese momento o vaciarlo.</p>
+          <p>Y, cuando el portapapeles del ordenador contiene algo reconocible
+            (una dirección, un enlace magnet o de AceStream, o un código de descarga), el
+            menú añade automáticamente, como primera entrada destacada, un atajo para
+            importarlo de inmediato.</p>
+          <h3>Descargar archivos</h3>
+          <p>Para traer archivos de internet existen dos vías. "Descargar archivos desde URL"
+            descarga el archivo de una dirección web y reconoce los pasos intermedios que
+            añaden servicios como Google Drive o MediaFire.</p>
+          <p>"Descargar archivos desde código numérico" hace lo mismo que la aplicación Downloader de AFTVnews. En lugar
+            de una dirección larga se escribe el código corto que suele compartirse en su lugar, y loiolink se ocupa de
+            resolverlo.</p>
+          <h3>Historial de transferencias</h3>
+          <p>Guarda el registro de todo lo transferido, con su estado. Lo que puede hacerse
+            con cada entrada depende de su tipo, como reproducir
+            un vídeo o un audio, ver una imagen, instalar un addon o un APK, o lanzar un
+            torrent con Elementum.</p>
+          <p>Cualquier entrada permite ver sus checksums (MD5 y SHA-256) y borrarse,
+            lo que elimina también el archivo del disco; los vídeos, los audios y las imágenes pueden abrirse además en
+            otro dispositivo mediante un código QR.</p>
+          <h3>Otras opciones</h3>
+          <p>El resto del menú lo forman el "Gestor de fuentes y repositorios" y el "Explorador de archivos", ambos
+            descritos en el apartado siguiente; la entrada de StreamNinja, que abre ese addon si ya está instalado
+            y, si no, ofrece instalarlo; "Ajustes", que da acceso a toda la configuración; e "Información",
+            donde figuran los datos y la versión del addon, los instaladores de Flow FavManager y de LoioLog, y la
+            ventana "Universo EspaKodi", que recoge los enlaces de contacto y la web del proyecto.</p>
+          <h3>Menú contextual de Kodi</h3>
+          <p>Al margen de ese menú, loiolink añade dos entradas al menú contextual de Kodi.
+            El menú contextual es el que muestra opciones adicionales sobre el elemento
+            seleccionado; la forma de abrirlo depende del dispositivo:</p>
+          <ul>
+            <li><strong>Mando de Fire TV o Android TV</strong>: mantener pulsado el botón central (OK o
+              Select) unos segundos, o pulsar el botón de menú (☰) si el mando lo tiene.</li>
+            <li><strong>Teclado (Windows, Linux, macOS)</strong>: tecla <code>C</code> o la tecla de menú contextual.
+            </li>
+            <li><strong>Ratón</strong>: clic derecho sobre el elemento.</li>
+            <li><strong>Pantalla táctil</strong>: mantener pulsado el elemento.</li>
+          </ul>
+          <p>Las dos entradas que añade loiolink son: "Pegar (loiolink)", que introduce en un
+            cuadro de búsqueda el texto que se tenga guardado, y "Copiar a loiolink", que
+            copia el nombre del elemento sobre el que se esté situado.</p>
+        </section>
+
+        <section id="s9">
+          <h2><span class="sec-num">9</span>El explorador de archivos y el gestor de fuentes</h2>
+          <h3>Explorador de archivos</h3>
+          <p>El explorador de archivos es un gestor de archivos integrado, más manejable que el que Kodi trae de serie.
+            Su lista principal son las fuentes que Kodi tiene configuradas, ya sean carpetas
+            locales, memorias USB o fuentes de red. Las que más se usen pueden marcarse como favoritas para que queden
+            destacadas arriba, y la dirección de cada una puede mostrarse como código QR para pasarla a otro
+            dispositivo. La lista entera, además, se exporta a un archivo o se comparte mediante un QR, de modo que
+            pueda importarse en otro equipo.</p>
+          <p>Al entrar en una fuente se recorre su contenido con normalidad. De cada archivo
+            puede consultarse su información (nombre, tipo, ruta, tamaño y fecha) y
+            realizarse las operaciones habituales, como copiar, mover, renombrar, eliminar y crear
+            carpetas. El contenido se puede buscar por nombre y ordenar por nombre, tamaño,
+            fecha o tipo. Al abrir un archivo, el vídeo y el audio se reproducen, las
+            imágenes se muestran y los
+            <code>.zip</code> o <code>.apk</code> se instalan.
+          </p>
+          <p>Y cualquier carpeta puede fijarse como destino de las subidas que lleguen del dispositivo, con la opción de
+            abrir ahí mismo el código QR del panel para enviarlas.
+          </p>
+          <h3>Gestor de fuentes y repositorios</h3>
+          <p>El gestor de fuentes y repositorios es una alternativa al gestor de fuentes
+            de Kodi, concebida para que añadir y vigilar fuentes resulte más cómodo. Su
+            asistente de GitHub Pages evita tener que
+            escribir direcciones largas del tipo <code>https://usuario.github.io/repositorio/</code>; pide únicamente el
+            nombre de usuario y el del repositorio, y compone el resto.</p>
+          <p>Al abrirlo, si la última comprobación no
+            es reciente, repasa las fuentes para ver si alguna ha cambiado y lo señala en la
+            primera entrada de la lista. Cuando una fuente de tipo repositorio se ha
+            actualizado, no solo avisa, sino que detalla qué ha cambiado, distinguiendo los
+            addons nuevos, los que han desaparecido y los que tienen una versión más reciente
+            (por ejemplo, de la 1.0.2 a la 1.1.0).</p>
+          <p>Una opción aparte revisa, además, los repositorios ya instalados en Kodi e indica cuáles tienen addons con
+            una versión
+            nueva disponible.</p>
+          <p>El gestor incluye también herramientas de copia de seguridad para las fuentes configuradas. La copia más
+            completa, que abarca también los addons, los repositorios y los favoritos, se encuentra en la pestaña
+            Sistema del panel web.</p>
+        </section>
+
+        <section id="s10">
+          <h2><span class="sec-num">10</span>Accesibilidad</h2>
+          <p>El addon dedica un apartado entero a la accesibilidad, con la vista puesta en las personas mayores y en
+            quienes tienen alguna dificultad de visión o sufren fatiga visual. Se encuentra en Ajustes, dentro de
+            "Accesibilidad", y sus opciones se aplican de inmediato a todos los menús, avisos y diálogos del addon.</p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Opción</th>
+                  <th scope="col">En qué consiste</th>
+                  <th scope="col">A quién ayuda</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="Opción">Modo de color</td>
+                  <td data-label="En qué consiste">Cambia los colores del texto. Incluye texto en blanco, dos modos para
+                    daltonismo (rojo-verde y azul-amarillo) y dos modos de alto contraste, uno para fondo oscuro y otro
+                    para fondo claro.</td>
+                  <td data-label="A quién ayuda">A quienes no distinguen ciertos colores o sufren fatiga visual al leer
+                    desde el sofá.</td>
+                </tr>
+                <tr>
+                  <td data-label="Opción">Negrita forzada</td>
+                  <td data-label="En qué consiste">Aumenta el grosor de todos los textos del addon. Viene activada de
+                    fábrica.</td>
+                  <td data-label="A quién ayuda">A quienes tienen la vista cansada o un televisor con tipografías muy
+                    finas.</td>
+                </tr>
+                <tr>
+                  <td data-label="Opción">Sustituir símbolos</td>
+                  <td data-label="En qué consiste">Reemplaza iconos como la estrella, el punto medio o las flechas por
+                    caracteres sencillos como el asterisco o el guion.</td>
+                  <td data-label="A quién ayuda">A quienes usan un tema de Kodi que muestra esos símbolos como cuadrados
+                    vacíos.</td>
+                </tr>
+                <tr>
+                  <td data-label="Opción">Texto en mayúsculas</td>
+                  <td data-label="En qué consiste">Convierte a mayúsculas los textos de los menús del addon.</td>
+                  <td data-label="A quién ayuda">Agranda los títulos y los hace más fáciles de leer de un vistazo.</td>
+                </tr>
+                <tr>
+                  <td data-label="Opción">Duración de las notificaciones</td>
+                  <td data-label="En qué consiste">Multiplica por dos o por cuatro el tiempo que los avisos del addon
+                    permanecen en pantalla.</td>
+                  <td data-label="A quién ayuda">A quienes prefieren leer los avisos con calma antes de que
+                    desaparezcan.</td>
+                </tr>
+                <tr>
+                  <td data-label="Opción">Confirmación de acciones destructivas</td>
+                  <td data-label="En qué consiste">Pide confirmar antes de cualquier acción que borre o altere algo
+                    importante. Viene activada de fábrica.</td>
+                  <td data-label="A quién ayuda">Evita que una pulsación accidental del mando borre carpetas o
+                    desconfigure el addon.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="s11">
+          <h2><span class="sec-num">11</span>Ajustes</h2>
+          <p>La opción "Ajustes" del menú da paso a la configuración de loiolink, repartida en varios apartados. No es
+            necesario tocar nada para un uso normal, ya que viene listo de fábrica. Quien quiera afinar el
+            comportamiento del addon encontrará aquí lo siguiente.</p>
+          <h3>Asistente de configuración inicial</h3>
+          <p>Repite el recorrido descrito en el apartado 4, por si se desea revisar la puesta a punto.</p>
+          <h3>Recibir texto</h3>
+          <p>Reúne los ajustes del servidor que recibe contenido desde otros dispositivos, como el puerto en el que
+            escucha, si se cierra al salir de su ventana o permanece siempre activo, el tiempo de espera y la opción
+            de aceptar texto desde otras redes, no solo desde la WiFi local.</p>
+          <h3>Pegar texto en buscadores</h3>
+          <p>Controla cómo se introduce en los cuadros de búsqueda de Kodi el texto recibido: la confirmación previa,
+            la vista previa del texto, si se pulsa Enter de forma automática para lanzar la búsqueda, en qué elementos
+            aparece la opción de pegar y la sincronización del portapapeles.</p>
+          <h3>Panel web remoto</h3>
+          <p>Permite encender o apagar el panel, cambiar su puerto (el 9095 de forma predeterminada), activar el cifrado
+            HTTPS y decidir qué permisos tiene el panel, es decir, si puede gestionar addons o apagar el equipo.</p>
+          <h3>Descargas</h3>
+          <p>Determina la carpeta en la que se guardan los archivos recibidos, el tamaño máximo admitido por archivo
+            (entre 1 y 50 GB), qué hacer al terminar una descarga y el tiempo de espera de las descargas.</p>
+          <h3>Copia de seguridad</h3>
+          <p>Reúne los ajustes del sistema de copia de seguridad, como la carpeta donde se guardan los archivos,
+            cuántas copias conservar antes de empezar a rotar las más antiguas, el nivel de compresión, qué se
+            incluye por defecto al crear una copia (datos de usuario de los addons, skins, addons del sistema de Kodi),
+            si se calcula una huella digital de cada archivo para detectar corrupción, si se crea una copia automática
+            justo antes de cada restauración por si la operación va mal, y si el archivo se cifra con una contraseña
+            para que solo pueda abrirse con ella.</p>
+          <h3>Opciones avanzadas</h3>
+          <p>Guarda las direcciones de los repositorios desde los que se instalan StreamNinja, Elementum y LoioLog,
+            junto con las herramientas de depuración; no hace falta entrar aquí para el uso corriente.</p>
+          <h3>Otros apartados</h3>
+          <p>Hay otros tres apartados. "Accesibilidad" ya se describió en el apartado anterior; "Log y Diagnóstico" abre
+            LoioLog y, si no está instalado, ofrece instalarlo; y "Ajustes nativos de Kodi" abre la ventana de
+            configuración estándar de Kodi para aquellas opciones que se manejan mejor con sus propios controles.</p>
+          <h3>Advertencia de seguridad</h3>
+          <p>Tres opciones vienen desactivadas de fábrica de forma deliberada: el cifrado
+            HTTPS, la gestión remota de addons y las acciones de encendido. Solo conviene activarlas si se entiende
+            bien lo que hacen.</p>
+          <p>Y si en algún momento se desea retirar el acceso a los
+            dispositivos enlazados, sus sesiones pueden revocarse desde la pestaña Sistema
+            del panel, una por una o todas las demás de una vez; y desde estos ajustes,
+            regenerar el token de acceso las invalida todas.</p>
+        </section>
+
+        <section id="s12">
+          <h2><span class="sec-num">12</span>Solución de problemas</h2>
+          <details class="faq" open>
+            <summary>
+              <span class="q">Abro la dirección en el navegador y aparece un error de conexión</span>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </summary>
+            <div class="faq-body">
+              <p>Es el contratiempo más frecuente, y casi siempre tiene que ver con la red local. Conviene comprobar
+                estas cuatro cosas, por orden:</p>
+              <ol>
+                <li>Que el dispositivo esté conectado a la misma red WiFi que el equipo de Kodi. Si es un móvil, que use
+                  esa WiFi y no los datos móviles.</li>
+                <li>Que no haya ninguna VPN activa, ni en el dispositivo ni en Kodi. Las VPN aíslan los dispositivos e
+                  impiden que se comuniquen en la red de casa.</li>
+                <li>Que el cortafuegos no esté bloqueando a Kodi. En un ordenador con Windows, Linux o macOS, hay que
+                  permitir el acceso a Kodi cuando el sistema lo pregunte.</li>
+                <li>Que el router no tenga activado el aislamiento inalámbrico (a veces llamado <em>AP Isolation</em>),
+                  una protección que impide a los dispositivos de la WiFi comunicarse entre sí. Si lo está, hay que
+                  desactivarlo en la configuración del router.</li>
+              </ol>
+            </div>
+          </details>
+          <details class="faq">
+            <summary>
+              <span class="q">Con HTTPS, el navegador advierte de que la conexión no es privada</span>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </summary>
+            <div class="faq-body">
+              <p>No es peligroso. El addon permite cifrar la conexión con HTTPS, pero el certificado de seguridad lo
+                genera el propio Kodi, no una autoridad externa de internet, y los navegadores avisan de ello por
+                precaución. Para continuar, hay que pulsar en "Configuración avanzada" (o "Más información") y después
+                en "Acceder de todos modos" o "Continuar". La página se cargará con normalidad y el navegador no
+                repetirá el aviso.</p>
+            </div>
+          </details>
+          <details class="faq">
+            <summary>
+              <span class="q">Subo una aplicación Android pero no se instala</span>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </summary>
+            <div class="faq-body">
+              <p>Por seguridad, Android bloquea la instalación de aplicaciones ajenas a la tienda oficial. El
+                procedimiento varía según la plataforma.</p>
+              <p><strong>Android (móviles y tablets).</strong> Desde Android 8, el permiso de instalar aplicaciones
+                externas es por app. Al intentar abrir un APK, el sistema pregunta si se quiere permitir que esa app
+                concreta instale aplicaciones; basta con aceptar. Si el diálogo no aparece, hay que ir a Ajustes →
+                Aplicaciones → Acceso especial → Instalar aplicaciones desconocidas y activarlo para el gestor de
+                archivos o el navegador que se esté usando.</p>
+              <p><strong>Android TV y Google TV.</strong> En versiones recientes (Android TV 14 en adelante), el permiso
+                se pide en el momento de instalar. Al abrir el archivo APK por primera vez, aparece un diálogo que
+                pregunta si se quiere permitir que el gestor de archivos instale aplicaciones externas; basta con
+                aceptar. En versiones más antiguas hay que activarlas a mano. Para ello, en Ajustes → Sistema → Acerca
+                de, hay que pulsar varias veces sobre "Compilación del SO de Android TV" hasta que aparezca el aviso de
+                activación. Después, en Aplicaciones → Seguridad y restricciones, se localiza Kodi y se le concede el
+                permiso de instalar aplicaciones de origen desconocido.</p>
+              <p><strong>Amazon Fire TV.</strong> Fire TV es Android con una capa de Amazon. En los modelos con Fire OS
+                7 hay que ir a Ajustes → Mi Fire TV → Opciones de desarrollador y activar "Aplicaciones de origen
+                desconocido". Los modelos con Vega OS (Fire TV 4K Select, Echo Hub y otros recientes) no permiten
+                instalar aplicaciones externas.</p>
+            </div>
+          </details>
+          <details class="faq">
+            <summary>
+              <span class="q">Escribo texto desde el dispositivo pero no aparece nada en la televisión</span>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </summary>
+            <div class="faq-body">
+              <p>La escritura automática solo funciona cuando la televisión tiene abierto el
+                teclado de búsqueda de Kodi. Cuando ese teclado se abre, el panel lo detecta
+                automáticamente y muestra un cuadro emergente para escribir desde el dispositivo.
+                También funciona enviando el texto directamente desde el cuadro del panel o desde
+                el servidor "Recibir texto"; si el teclado está abierto en ese momento, el texto
+                se inyecta igualmente.</p>
+              <p>Si se está navegando por menús normales, el texto enviado se guarda en el
+                portapapeles interno de loiolink. Para colocarlo más tarde, hay que situarse
+                sobre un cuadro de búsqueda, abrir el menú contextual y elegir
+                "Pegar (loiolink)".</p>
+            </div>
+          </details>
+          <details class="faq">
+            <summary>
+              <span class="q">No aparecen las carátulas ni la información de mi biblioteca</span>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </summary>
+            <div class="faq-body">
+              <p>Para que el panel muestre películas y series con carátula y sinopsis, el contenido debe estar añadido a
+                la biblioteca de Kodi, escaneado con un buscador de información. Si solo se navega por archivos sueltos,
+                la vista de biblioteca estará vacía. La solución es configurar las carpetas como "Películas" o "Series"
+                en los archivos de Kodi y ejecutar una actualización de la biblioteca; entre tanto, puede usarse la
+                sección Archivos de la biblioteca, que sí muestra los archivos sueltos.</p>
+            </div>
+          </details>
+          <details class="faq">
+            <summary>
+              <span class="q">Un vídeo no se reproduce al elegir "ver en este dispositivo"</span>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </summary>
+            <div class="faq-body">
+              <p>El navegador reproduce sin problema los formatos más habituales, como el MP4. Otros, como el MKV o el
+                AVI, necesitan una conversión al vuelo que requiere el programa FFmpeg. Si FFmpeg no está disponible,
+                ese vídeo solo podrá verse en la televisión. Las instrucciones para habilitar la conversión figuran al
+                final del apartado 7.</p>
+            </div>
+          </details>
+          <details class="faq">
+            <summary>
+              <span class="q">El menú dice que el panel web está apagado</span>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </summary>
+            <div class="faq-body">
+              <p>Este aviso significa que el panel de control remoto se ha desactivado desde los ajustes. Al pulsar
+                "Controlar Kodi y enviar contenido de forma remota", loiolink ofrecerá volver a
+                encenderlo; también puede activarse en Ajustes → Panel web remoto.</p>
+              <p>Si Kodi acaba de arrancar, el panel puede tardar unos segundos en estar listo. En ese caso
+                basta con esperar un momento y volver a intentarlo.</p>
+            </div>
+          </details>
+        </section>
+
+      </article>
+
+      <footer class="foot">
+        <p>Esta guía describe la versión 0.3.1 de loiolink</p>
+        <p class="foot-author">&copy; RubénSDFA1laberot</p>
+      </footer>
+    </main>
+  </div>
+
+  <button class="to-top" id="toTop" aria-label="Volver arriba">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+      stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7" />
+    </svg>
+  </button>
+
+  <script>
+    (function () {
+      const root = document.documentElement;
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('overlay');
+      const progress = document.getElementById('progress');
+      const toTop = document.getElementById('toTop');
+      const menuBtn = document.getElementById('menuBtn');
+      const tocLinks = [...document.querySelectorAll('.toc a')];
+      const sections = tocLinks.map(a => document.getElementById(a.hash.slice(1)));
+
+      function setTheme(theme) {
+        root.setAttribute('data-theme', theme);
+        try {
+          localStorage.setItem('loiolink-guia-theme', theme);
+        } catch (e) {
+          // sin localStorage el tema cambia pero no se recuerda
+        }
+        const label = theme === 'dark' ? 'Claro' : 'Oscuro';
+        document.querySelectorAll('.theme-label').forEach(el => { el.textContent = label; });
+      }
+      setTheme(root.getAttribute('data-theme'));
+      document.querySelectorAll('.theme-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          setTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+        });
+      });
+
+      const palettes = ['teal', 'indigo', 'burgundy', 'forest', 'terracotta'];
+      const paletteNames = { teal: 'Teal', indigo: 'Índigo', burgundy: 'Burdeos', forest: 'Bosque', terracotta: 'Terracota' };
+      const paletteBtn = document.getElementById('paletteBtn');
+      const paletteLabel = paletteBtn.querySelector('.palette-label');
+
+      function setPalette(name) {
+        if (!palettes.includes(name)) name = 'teal';
+        root.setAttribute('data-palette', name);
+        paletteLabel.textContent = paletteNames[name];
+        try {
+          localStorage.setItem('loiolink-guia-palette2', name);
+        } catch (e) {
+          // la paleta cambia pero no se recuerda
+        }
+      }
+      setPalette(root.getAttribute('data-palette'));
+      paletteBtn.addEventListener('click', () => {
+        const i = palettes.indexOf(root.getAttribute('data-palette'));
+        setPalette(palettes[(i + 1) % palettes.length]);
+      });
+
+      const a11yOpts = [...document.querySelectorAll('.a11y-opt')];
+      function saveA11y() {
+        const active = a11yOpts
+          .filter(b => b.getAttribute('aria-pressed') === 'true')
+          .map(b => b.dataset.a11y);
+        try {
+          localStorage.setItem('loiolink-guia-a11y', active.join(' '));
+        } catch (e) {
+          // los ajustes de accesibilidad se aplican pero no se recuerdan
+        }
+      }
+      a11yOpts.forEach(btn => {
+        const cls = 'a11y-' + btn.dataset.a11y;
+        btn.setAttribute('aria-pressed', String(root.classList.contains(cls)));
+        btn.addEventListener('click', () => {
+          const on = !root.classList.contains(cls);
+          root.classList.toggle(cls, on);
+          btn.setAttribute('aria-pressed', String(on));
+          saveA11y();
+        });
+      });
+
+      const a11yBtn = document.getElementById('a11yBtn');
+      const a11yPanel = document.getElementById('a11yPanel');
+      function closeA11yPanel() {
+        a11yPanel.classList.remove('show');
+        a11yBtn.setAttribute('aria-expanded', 'false');
+      }
+      a11yBtn.addEventListener('click', e => {
+        e.stopPropagation();
+        const open = a11yPanel.classList.toggle('show');
+        a11yBtn.setAttribute('aria-expanded', String(open));
+      });
+      a11yPanel.addEventListener('click', e => e.stopPropagation());
+      document.addEventListener('click', closeA11yPanel);
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') closeA11yPanel(); });
+
+      function setDrawer(open) {
+        sidebar.classList.toggle('open', open);
+        overlay.classList.toggle('show', open);
+        menuBtn.classList.toggle('is-open', open);
+        menuBtn.setAttribute('aria-expanded', String(open));
+      }
+      menuBtn.addEventListener('click', () => setDrawer(!sidebar.classList.contains('open')));
+      overlay.addEventListener('click', () => setDrawer(false));
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') setDrawer(false); });
+      tocLinks.forEach(a => {
+        a.addEventListener('click', () => { if (window.innerWidth < 1000) setDrawer(false); });
+      });
+
+      ['copy', 'cut', 'contextmenu', 'selectstart', 'dragstart'].forEach(type => {
+        document.addEventListener(type, e => e.preventDefault());
+      });
+
+      let ticking = false;
+      function update() {
+        const scrolled = window.scrollY;
+        const max = root.scrollHeight - window.innerHeight;
+        progress.style.width = (max > 0 ? scrolled / max * 100 : 0) + '%';
+        toTop.classList.toggle('show', scrolled > 600);
+
+        let current = -1;
+        sections.forEach((sec, i) => {
+          if (sec && sec.getBoundingClientRect().top <= 120) current = i;
+        });
+        tocLinks.forEach((a, i) => {
+          const active = i === current;
+          a.classList.toggle('active', active);
+          if (active) a.setAttribute('aria-current', 'true');
+          else a.removeAttribute('aria-current');
+        });
+        ticking = false;
+      }
+      window.addEventListener('scroll', () => {
+        if (!ticking) { requestAnimationFrame(update); ticking = true; }
+      }, { passive: true });
+      window.addEventListener('resize', update);
+      update();
+
+      toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+      document.getElementById('shareGuideBtn').addEventListener('click', () => {
+        const blob = new Blob([document.documentElement.outerHTML], { type: 'text/html' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'guia-loiolink.html';
+        a.click();
+        URL.revokeObjectURL(url);
+      });
+    })();
+  </script>
+
+</body>
+
+</html>
