@@ -2,9 +2,9 @@
 <addon id="repository.loiolink" version="1.0.0" name="loiolink Repository" provider-name="RubénSDFA1laberot">
   <extension point="xbmc.addon.repository" name="loiolink Repository">
     <dir>
-      <info compressed="false">https://loiolo.io/addons.xml</info>
-      <checksum>https://loiolo.io/addons.xml.md5</checksum>
-      <datadir zip="true">https://loiolo.io/</datadir>
+      <info compressed="false">https://loioloio.github.io/loiolink/addons.xml</info>
+      <checksum>https://loioloio.github.io/loiolink/addons.xml.md5</checksum>
+      <datadir zip="true">https://loioloio.github.io/loiolink/</datadir>
     </dir>
     <dir>
       <info compressed="false">https://loioloio.github.io/flowfav/addons.xml</info>
