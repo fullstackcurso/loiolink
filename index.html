@@ -86,35 +86,40 @@
       --primary: #136b5e;
       --primary-strong: #0e564c;
       --primary-soft: #e4efec;
-      --hero: #114a43
+      --hero: #114a43;
+      --hero-accent: #9ae9d9
     }
 
     [data-palette="indigo"] {
       --primary: #37548f;
       --primary-strong: #2b4373;
       --primary-soft: #e7eaf3;
-      --hero: #283c6e
+      --hero: #283c6e;
+      --hero-accent: #b4c9ff
     }
 
     [data-palette="burgundy"] {
       --primary: #8a3144;
       --primary-strong: #6f2737;
       --primary-soft: #f3e6e9;
-      --hero: #5e2330
+      --hero: #5e2330;
+      --hero-accent: #ffb8c5
     }
 
     [data-palette="forest"] {
       --primary: #356b3f;
       --primary-strong: #2a5532;
       --primary-soft: #e6efe5;
-      --hero: #274a2c
+      --hero: #274a2c;
+      --hero-accent: #a3e9ae
     }
 
     [data-palette="terracotta"] {
       --primary: #a85534;
       --primary-strong: #8a4429;
       --primary-soft: #f5e9e2;
-      --hero: #7a3d24
+      --hero: #7a3d24;
+      --hero-accent: #ffc4ab
     }
 
     [data-theme="dark"][data-palette="teal"] {
@@ -668,11 +673,82 @@
     }
 
     .hero-sub {
-      margin: 1.05rem auto 0;
-      font-size: clamp(1rem, 2.3vw, 1.18rem);
+      margin: 1.25rem auto 0;
+      max-width: 82ch;
+      line-height: 1.5;
+      text-align: center
+    }
+
+    .hero-slogan,
+    .hero-features,
+    .hero-purpose {
+      font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+      animation: fadeIn 0.8s ease forwards;
+      opacity: 0
+    }
+
+    .hero-slogan {
+      display: inline;
+      font-size: clamp(1.05rem, 2.5vw, 1.2rem);
+      font-weight: 500;
+      color: #ffffff
+    }
+
+    .hero-features {
+      display: inline;
       font-weight: 300;
-      color: rgba(255, 255, 255, .82);
-      max-width: 46ch
+      color: rgba(255, 255, 255, .76);
+      animation-delay: 0.15s
+    }
+
+    .hero-purpose {
+      display: inline;
+      font-weight: 400;
+      color: var(--hero-accent);
+      animation-delay: 0.3s
+    }
+
+    @media (min-width: 768px) {
+      .hero-sub {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center
+      }
+
+      .hero-slogan,
+      .hero-features,
+      .hero-purpose {
+        display: block;
+        transform: translateY(8px);
+        animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards
+      }
+
+      .hero-slogan {
+        font-size: clamp(1.15rem, 2.5vw, 1.35rem);
+        transform: translateY(8px)
+      }
+
+      .hero-features {
+        animation-delay: 0.15s
+      }
+
+      .hero-purpose {
+        animation-delay: 0.3s
+      }
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1
+      }
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
     }
 
     .pill {
@@ -1139,10 +1215,12 @@
         background: #fff
       }
     }
+
     .h3-sweep span {
       position: relative;
       display: inline-block;
     }
+
     .h3-sweep span::before {
       content: '';
       position: absolute;
@@ -1152,12 +1230,27 @@
       animation: h3-sweep 19s ease-in-out infinite;
       pointer-events: none;
     }
+
     @keyframes h3-sweep {
-      0%   { clip-path: inset(0 100% 0 0); }
-      11%  { clip-path: inset(0 0% 0 0); }
-      63%  { clip-path: inset(0 0% 0 0); }
-      74%  { clip-path: inset(0 0% 0 100%); }
-      100% { clip-path: inset(0 0% 0 100%); }
+      0% {
+        clip-path: inset(0 100% 0 0);
+      }
+
+      11% {
+        clip-path: inset(0 0% 0 0);
+      }
+
+      63% {
+        clip-path: inset(0 0% 0 0);
+      }
+
+      74% {
+        clip-path: inset(0 0% 0 100%);
+      }
+
+      100% {
+        clip-path: inset(0 0% 0 100%);
+      }
     }
   </style>
 </head>
@@ -1165,9 +1258,9 @@
 <body>
 
   <div hidden>
-    <a href="https://loioloio.github.io/loiolink/repository.loiolink-1.0.0.zip">repository.loiolink-1.0.0.zip</a>
-    <a href="https://loioloio.github.io/loiolink/addons.xml">addons.xml</a>
-    <a href="https://loioloio.github.io/loiolink/addons.xml.md5">addons.xml.md5</a>
+    <a href="repository.loiolink-1.0.0.zip">repository.loiolink-1.0.0.zip</a>
+    <a href="addons.xml">addons.xml</a>
+    <a href="addons.xml.md5">addons.xml.md5</a>
   </div>
 
   <div class="progress" id="progress"></div>
@@ -1217,9 +1310,13 @@
           </div>
         </div>
         <button class="icon-btn" id="shareGuideBtn" aria-label="Descargar guía">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
-            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" aria-hidden="true">
+            <circle cx="18" cy="5" r="3" />
+            <circle cx="6" cy="12" r="3" />
+            <circle cx="18" cy="19" r="3" />
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
           </svg>
         </button>
       </div>
@@ -1286,52 +1383,65 @@
       <section class="hero">
         <div class="hero-inner">
           <h1>Guía de usuario de loiolink</h1>
-          <p class="hero-sub">Cómo instalar Kodi y loiolink, y cómo controlar Kodi desde el móvil o el ordenador.</p>
+          <div class="hero-sub">
+            <span class="hero-slogan">Centro de control web y navaja suiza para tu Kodi</span>
+            <span class="hero-features">Un sistema privado y local que funciona sin instalar aplicaciones ni
+              registrarse</span>
+            <span class="hero-purpose">Pensado para que controlar Kodi sea más fácil y cómodo que nunca</span>
+          </div>
           <span class="pill">Versión 0.3.1</span>
           <div class="hero-icons">
             <div class="hero-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="3" y="11" width="18" height="10" rx="2"/>
-                <polyline points="8 7 12 11 16 7"/>
-                <line x1="12" y1="3" x2="12" y2="11"/>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="11" width="18" height="10" rx="2" />
+                <polyline points="8 7 12 11 16 7" />
+                <line x1="12" y1="3" x2="12" y2="11" />
               </svg>
               <span>Instalar</span>
             </div>
             <div class="hero-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="8" y="2" width="8" height="20" rx="3"/>
-                <line x1="12" y1="7" x2="12" y2="11"/><line x1="10" y1="9" x2="14" y2="9"/>
-                <circle cx="12" cy="15" r="1.2" fill="currentColor" stroke="none"/>
-                <circle cx="10" cy="18" r=".85" fill="currentColor" stroke="none"/>
-                <circle cx="14" cy="18" r=".85" fill="currentColor" stroke="none"/>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <rect x="8" y="2" width="8" height="20" rx="3" />
+                <line x1="12" y1="7" x2="12" y2="11" />
+                <line x1="10" y1="9" x2="14" y2="9" />
+                <circle cx="12" cy="15" r="1.2" fill="currentColor" stroke="none" />
+                <circle cx="10" cy="18" r=".85" fill="currentColor" stroke="none" />
+                <circle cx="14" cy="18" r=".85" fill="currentColor" stroke="none" />
               </svg>
               <span>Mando</span>
             </div>
             <div class="hero-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                <polyline points="17 8 12 3 7 8"/>
-                <line x1="12" y1="3" x2="12" y2="15"/>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="17 8 12 3 7 8" />
+                <line x1="12" y1="3" x2="12" y2="15" />
               </svg>
               <span>Subida</span>
             </div>
             <div class="hero-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
               </svg>
               <span>Archivos</span>
             </div>
             <div class="hero-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
-                <circle cx="12" cy="12" r="3"/>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <path
+                  d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+                <circle cx="12" cy="12" r="3" />
               </svg>
               <span>Gestionar</span>
             </div>
             <div class="hero-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                <polyline points="9 12 11 14 15 10"/>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                <polyline points="9 12 11 14 15 10" />
               </svg>
               <span>Backup</span>
             </div>
@@ -1343,10 +1453,16 @@
 
         <section id="s1">
           <h2><span class="sec-num">1</span>Qué es loiolink</h2>
-          <p>¿Cuánto tardas en escribir una búsqueda en Kodi con el mando de la tele? Con loiolink, todo eso se hace en cosa de segundos desde el navegador de internet.</p>
-          <p>Esto es una parte; el resto está descrito en detalle más abajo.</p>
-          <p>Para emparejar, Kodi muestra un código QR; al escanearlo, el panel queda abierto en pocos segundos. Si el dispositivo no tiene cámara, hay también un código numérico corto que se puede introducir a mano. Lo mismo sirve con el móvil de un invitado, sin pedirle que instale nada ni cree cuentas. El único requisito real es que el dispositivo y Kodi compartan la misma red local (WiFi o cable).</p>
-          <p>Para mandar vídeos y enlaces de internet al televisor, basta con compartir la URL. Kodi la recibe y empieza a reproducirla al momento. Todo ocurre de forma privada en la red local.</p>
+          <p>¿Cuánto tardas en escribir una búsqueda en Kodi con el mando de la tele? Con loiolink, todo eso se hace en
+            cosa de segundos desde el navegador de internet.</p>
+          <p>Pero escribir rápido es solo el principio. Va mucho más allá y simplifica el uso de Kodi de muchas otras
+            formas.</p>
+          <p>Para emparejar, Kodi muestra un código QR; al escanearlo, el panel queda abierto en pocos segundos. Si el
+            dispositivo no tiene cámara, hay también un código numérico corto que se puede introducir a mano. Lo mismo
+            sirve con el móvil de un invitado, sin pedirle que instale nada ni cree cuentas. El único requisito real es
+            que el dispositivo y Kodi compartan la misma red local (WiFi o cable).</p>
+          <p>Para mandar vídeos y enlaces de internet al televisor, basta con compartir la URL. Kodi la recibe y empieza
+            a reproducirla al momento. Todo ocurre de forma privada en la red local.</p>
           <h3 class="h3-sweep"><span>Funciones principales</span></h3>
           <ul>
             <li><strong>Mando a distancia completo</strong>: navegar por los menús, reproducir, pausar, regular el
@@ -1356,18 +1472,29 @@
             <li><strong>Pegar en buscadores de Kodi</strong>: en cualquier addon con buscador, la opción
               <em>Pegar (loiolink)</em> del menú contextual inserta el texto enviado desde el dispositivo, sin tener
               que abrir el panel. El mismo menú también tiene <em>Copiar a loiolink</em>, que copia el nombre del
-              elemento seleccionado en Kodi al portapapeles de loiolink.</li>
+              elemento seleccionado en Kodi al portapapeles de loiolink.
+            </li>
             <li><strong>Biblioteca en el navegador</strong>: explorar la colección de películas, series y música, y
               reproducirla en la pantalla grande o en el propio dispositivo.</li>
+            <li><strong>Streaming de Kodi al móvil</strong>: enviar el vídeo desde el televisor para ver tus películas y
+              series directamente en la pantalla de tu móvil, tablet o PC.</li>
+            <li><strong>Favoritos</strong>: eliminar, cambiar el orden o editar accesos directos a películas, series,
+              secciones de addons o cualquier elemento que tengas en favoritos desde el navegador.</li>
             <li><strong>Envío de contenido</strong>: mandar vídeos y audio de internet, retransmisiones en directo,
-              M3U, enlaces magnet, torrent o AceStream para que Kodi los empiece a reproducir.</li>
+              M3U, enlaces magnet, torrent o AceStream para que Kodi los empiece a reproducir, descargarlos o programar
+              su grabación.</li>
+            <li><strong>Escáner web y Telegram</strong>: rastrear páginas de internet y canales de Telegram para
+              recopilar y reproducir torrents, enlaces magnet, AceStream, m3u, vídeos y enlaces de vídeo.</li>
             <li><strong>Instalación de addons y repositorios</strong>: enviar archivos <code>.zip</code> de addons o
-              repositorios desde el dispositivo para instalarlos en Kodi al instante, sin pasar por el explorador de
+              repositorios desde el dispositivo (o descargarlos mediante códigos numéricos) para instalarlos en Kodi al
+              instante, sin pasar por el explorador de
               archivos de la televisión.</li>
             <li><strong>Instalación de APKs</strong>: en dispositivos Android TV o Fire TV, enviar un
-              <code>.apk</code> y lanzar su instalación directamente desde el navegador.</li>
+              <code>.apk</code> y lanzar su instalación directamente desde el navegador.
+            </li>
             <li><strong>Subida de archivos</strong>: transferir fotografías, canciones, vídeos o cualquier otro archivo
               al almacenamiento de Kodi a través de la red local.</li>
+            <li><strong>Grabación HLS</strong>: grabar transmisiones en directo o programar grabaciones.</li>
             <li><strong>Explorador de archivos y fuentes</strong>: gestionar las fuentes de contenido de Kodi y navegar
               por el sistema de archivos desde el panel web.</li>
             <li><strong>Apagado y reinicio</strong>: cerrar Kodi, apagar el equipo, suspenderlo o reiniciarlo desde el
@@ -1380,13 +1507,23 @@
             en cualquier sistema (Windows, Linux, macOS, Android TV, Fire TV, etc). No requiere permisos de
             administrador, ni root, ni abrir puertos en el router.</p>
           <h3>loiolink dentro de loioloio</h3>
-          <p>Forma parte del ecosistema loioloio. El nombre tiene su lógica (las letras están juntas en el teclado, se escribe enseguida y de paso parece código binario). Los otros addons son:</p>
+          <p>Forma parte del ecosistema loioloio. El nombre tiene su lógica (las letras están juntas en el teclado, se
+            escribe enseguida y de paso parece código binario). Los otros addons son:</p>
           <ul>
-            <li><strong>StreamNinja</strong>: permite enviar URLs a Kodi desde un móvil o PC mediante una web local efímera, o bien recibirlas directamente desde otros addons. Soporta Dailymotion, YouTube, AceStream, torrents y casi cualquier enlace de vídeo.</li>
-            <li><strong>Flow FavManager</strong>: mejora la experiencia de gestión de favoritos en Kodi. Permite organizarlos, personalizar su apariencia y las acciones que realizan. Incluye herramientas de copia de seguridad, un editor intuitivo, perfiles y ordenación por secciones, entre otras funciones.</li>
-            <li><strong>LoioLog</strong>: visualiza y busca en el log de Kodi con un visor de colores por severidad. Filtra por addon, texto o expresiones regulares. Exporta a TXT o JSON, comparte el log subiendo a internet o ábrelo en el móvil desde tu red local. Consulta estadísticas del log, compara errores entre sesiones y gestiona los logs anteriores.</li>
+            <li><strong>StreamNinja</strong>: permite enviar URLs a Kodi desde un móvil o PC mediante una web local
+              efímera, o bien recibirlas directamente desde otros addons. Soporta Dailymotion, YouTube, AceStream,
+              torrents y casi cualquier enlace de vídeo.</li>
+            <li><strong>Flow FavManager</strong>: mejora la experiencia de gestión de favoritos en Kodi. Permite
+              organizarlos, personalizar su apariencia y las acciones que realizan. Incluye herramientas de copia de
+              seguridad, un editor intuitivo, perfiles y ordenación por secciones, entre otras funciones.</li>
+            <li><strong>LoioLog</strong>: visualiza y busca en el log de Kodi con un visor de colores por severidad.
+              Filtra por addon, texto o expresiones regulares. Exporta a TXT o JSON, comparte el log subiendo a internet
+              o ábrelo en el móvil desde tu red local. Consulta estadísticas del log, compara errores entre sesiones y
+              gestiona los logs anteriores.</li>
           </ul>
-          <p>Ninguno hace falta para usar loiolink, pero todos pueden instalarse desde el propio addon en Información &gt; loioloio addons. La web <a href="https://loiolo.io" target="_blank" rel="noopener">loiolo.io</a> sirve también de fuente de Kodi para instalarlos; más abajo se detalla cómo.</p>
+          <p>Ninguno hace falta para usar loiolink, pero todos pueden instalarse desde el propio addon en Información
+            &gt; loioloio addons. La web <a href="https://loiolo.io" target="_blank" rel="noopener">loiolo.io</a> sirve
+            también de fuente de Kodi para instalarlos; más abajo se detalla cómo.</p>
         </section>
 
         <section id="s2">
@@ -1459,22 +1596,39 @@
             <li>En Kodi, ir a Ajustes → Explorador de archivos → Añadir fuente.</li>
             <li>Pulsar sobre "&lt;Ninguno&gt;" e introducir esta dirección, copiada con exactitud:
               <code>https://loiolo.io/</code>, o también vale <code>https://espatv.github.io/loiolink/</code>.
-              Dar a la fuente el nombre <code>loiolink</code> y aceptar.
+              Dar a la fuente el nombre <code>loiolink</code> (o el que quieras, por ejemplo <code>lo</code>) y aceptar.
             </li>
             <li>Volver al menú principal, entrar en Add-ons y pulsar el icono de la caja abierta, arriba a la izquierda.
               Elegir "Instalar desde archivo zip".</li>
-            <li>Seleccionar la fuente <code>loiolink</code> y, dentro de ella, el archivo
+            <li>Seleccionar la fuente con el nombre elegido (como <code>loiolink</code> o <code>lo</code>) y, dentro de
+              ella, el archivo
               <code>repository.loiolink-1.0.0.zip</code>.
             </li>
             <li>Cuando aparezca el aviso "Add-on instalado", elegir "Instalar desde repositorio" → "loiolink Repository"
               → "Add-ons de programa" → "loiolink" → "Instalar".</li>
           </ol>
+          <div class="callout">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" aria-hidden="true">
+              <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+              <path d="M12 9v4M12 17h.01" />
+            </svg>
+            <div>
+              <div class="callout-title">Importante: ¿Se queda cargando al entrar al repositorio?</div>
+              <p>Nada más instalar el archivo ZIP, es muy frecuente que al pulsar en "Instalar desde repositorio" la
+                pantalla se quede cargando indefinidamente o dé un error. Esto es normal en Kodi porque necesita unos
+                segundos para indexar la nueva fuente en segundo plano. Si te pasa, simplemente dale al botón atrás para
+                volver al menú anterior, espera unos 10-15 segundos y pulsa de nuevo. Si continúa trabado, reiniciar
+                Kodi solucionará el problema.</p>
+            </div>
+          </div>
           <h3>Con el archivo ZIP</h3>
           <p>Misma instalación que con el repositorio, pero descargando el ZIP directamente, sin configurar ninguna
             fuente en Kodi.</p>
           <ol>
             <li>Descargar <code>repository.loiolink-1.0.0.zip</code> desde
-              <code>github.com/espatv/loiolink/releases</code>.</li>
+              <code>github.com/espatv/loiolink/releases</code>.
+            </li>
             <li>En Kodi, entrar en Add-ons, pulsar el icono de la caja abierta y elegir "Instalar desde archivo zip".
             </li>
             <li>Seleccionar el archivo descargado.</li>
@@ -1703,7 +1857,8 @@
             <li>Abre el archivo y entra en la carpeta <code>bin/</code> interna.</li>
             <li>Copia solo <code>ffmpeg.exe</code> y <code>ffprobe.exe</code> en la carpeta <code>bin</code>
               del addon; en la mayoría de los equipos está en
-              <code>%APPDATA%\Kodi\addons\plugin.program.loiolink\bin</code>.</li>
+              <code>%APPDATA%\Kodi\addons\plugin.program.loiolink\bin</code>.
+            </li>
           </ol>
           <p>No hace falta reiniciar Kodi; en cuanto los archivos estén ahí, la conversión queda disponible.</p>
         </section>
@@ -1895,7 +2050,7 @@
             HTTPS y decidir qué permisos tiene el panel, es decir, si puede gestionar addons o apagar el equipo.</p>
           <h3>Descargas</h3>
           <p>Determina la carpeta en la que se guardan los archivos recibidos, el tamaño máximo admitido por archivo
-            (entre 1 y 50 GB), qué hacer al terminar una descarga y el tiempo de espera de las descargas.</p>
+            de hasta 50 GB, qué hacer al terminar una descarga y el tiempo de espera de las descargas.</p>
           <h3>Copia de seguridad</h3>
           <p>Reúne los ajustes del sistema de copia de seguridad, como la carpeta donde se guardan los archivos,
             cuántas copias conservar antes de empezar a rotar las más antiguas, el nivel de compresión, qué se
