@@ -2,7 +2,7 @@
 
 ![Kodi](https://img.shields.io/badge/Kodi-19%2B-blue?logo=kodi) ![Status](https://img.shields.io/badge/Estado-Activo-brightgreen)
 
-Repositorio y más información: https://loiolo.io/
+Fuente y más información: https://loiolo.io/
 
 ## Verificación de integridad loiolink v0.3.1:
 - Tamaño:   1 208 225 bytes (1.15 MB)
