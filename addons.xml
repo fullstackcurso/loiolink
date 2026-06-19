@@ -1,9 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' standalone='yes'?>
 <addons>
-<addon id="plugin.program.loiolink" name="loiolink" version="0.3.1" provider-name="RubénSDFA1laberot">
+<addon id="plugin.program.loiolink" name="loiolink" version="0.3.5" provider-name="RubénSDFA1laberot">
   <requires>
     <import addon="xbmc.python" version="3.0.0"/>
     <import addon="script.module.requests"/>
+    <import addon="script.module.resolveurl" optional="true"/>
+    <import addon="script.module.youtube.dl" optional="true"/>
   </requires>
   <extension point="xbmc.python.pluginsource" library="default.py">
     <provides>executable</provides>
@@ -22,15 +24,21 @@
     </menu>
   </extension>
   <extension point="xbmc.addon.metadata">
-    <summary lang="es_ES">Controla Kodi desde el navegador: envía textos y vídeos, gestiona la reproducción, explora tu biblioteca y mírala directamente ahí.</summary>
-    <description lang="es_ES">loiolink convierte tu navegador web en el compañero perfecto para tu Kodi, sin necesidad de instalar apps adicionales.
-
-Características principales:
-• Mando a distancia: Controla lo que estás viendo o navega por los menús.
-• Toda tu colección: Navega por tus películas, series y música desde el navegador. Reprodúcelas en la TV o míralas directamente en tu pantalla.
+    <summary lang="es_ES">Centro de control web y navaja suiza para tu Kodi. Un sistema privado y local que funciona sin instalar aplicaciones ni registrarse. Pensado para que Kodi sea más fácil y cómodo que nunca.</summary>
+    <description lang="es_ES">Características principales:
+• Mando a distancia: Controla lo que estás viendo, navega por los menús o consulta y gestiona tus addons desde la web.
+• Toda tu colección: Navega por tus películas, series y música desde el navegador y reprodúcelas en la TV.
+• Streaming de Kodi al móvil: Envía el vídeo desde el televisor para ver tus películas y series directamente en la pantalla de tu móvil, tablet o PC.
+• Favoritos: Elimina, cambia el orden o edita accesos directos a películas, series, secciones de addons o cualquier elemento que tengas en favoritos desde el navegador.
 • Escribe sin usar el mando: Olvídate del teclado en pantalla de la TV. Escribe búsquedas o enlaces largos en el navegador y aparecerán al instante en Kodi.
-• Envío de vídeos y torrents: Manda vídeos de internet o enlaces magnet para que empiecen a reproducirse al vuelo.
+• Copiar y pegar: Pega texto en buscadores de Kodi o copia nombres de botones y elementos con el menú contextual (el menú de opciones al hacer clic derecho o mantener pulsado).
+• Envío de vídeos, torrents, listas M3U o enlaces AceStream para reproducirlos al vuelo, grabarlos (emisiones en directo) o guardarlos en local.
+• Escáner web y Telegram: Rastrea páginas de internet y canales de Telegram para recopilar y reproducir torrents, enlaces magnet, AceStream, m3u, vídeos y enlaces de vídeo.
 • Instalación de addons y archivos: Envía ZIPs de addons, repositorios o APKs desde el navegador para instalarlos al instante. También puedes subir vídeos, canciones o cualquier archivo a tu Kodi a través de tu red local.
+• Grabación HLS: Graba transmisiones en directo o programa grabaciones.
+• Explorador de archivos: Navega por carpetas y gestiona fuentes.
+• Apagado y reinicio: Apaga, reinicia o suspende el equipo remotamente.
+• Copia de seguridad: Guarda o restaura tus addons, favoritos y fuentes.
 
 ¡Y mucho más! Pruébalo y descubre todo lo que puede hacer.</description>
     <platform>all</platform>
@@ -40,6 +48,14 @@ Características principales:
       <icon>icon.jpg</icon>
     </assets>
     <news>
+v0.3.5:
+- Nuevo menú Descargas (URL, código, Telegram) y submenú Portapapeles.
+- Herramienta de limpieza: QR huérfanos, papelera y mantenimiento de Kodi.
+- ResolveURL y addon youtube.dl como resolvers de fallback (file-hosters, debrid, Android).
+- Mejoras de instalación de APK en Android (cadena de intents, diálogo accionable).
+- Corrección del QR en blanco intermitente; ajuste de área segura para TV (overscan).
+- Arrastre táctil y flechas en listas; drag and drop en restauración del panel web.
+- Sección Backup siempre visible con guía de activación.
 v0.3.1:
 - Añadido asistente de configuración inicial paso a paso.
 - Mejoras de estabilidad en las transferencias y el panel remoto.
