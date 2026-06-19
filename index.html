@@ -708,12 +708,30 @@
       animation-delay: 0.3s
     }
 
+    .hero-slogan::after {
+      content: ". "
+    }
+
+    .hero-features::after {
+      content: ". "
+    }
+
+    .hero-purpose::after {
+      content: "."
+    }
+
     @media (min-width: 768px) {
       .hero-sub {
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
         align-items: center
+      }
+
+      .hero-slogan::after,
+      .hero-features::after,
+      .hero-purpose::after {
+        content: none
       }
 
       .hero-slogan,
@@ -1387,7 +1405,7 @@
             <span class="hero-slogan">Centro de control web y navaja suiza para tu Kodi</span>
             <span class="hero-features">Un sistema privado y local que funciona sin instalar aplicaciones ni
               registrarse</span>
-            <span class="hero-purpose">Pensado para que controlar Kodi sea más fácil y cómodo que nunca</span>
+            <span class="hero-purpose">Pensado para hacer tu experiencia con Kodi más sencilla y cómoda</span>
           </div>
           <span class="pill">Versión 0.3.1</span>
           <div class="hero-icons">
