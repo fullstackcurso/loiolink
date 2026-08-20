@@ -5,7 +5,7 @@
 - Fuente y más información: https://loiolo.io/
 - [Instrucciones de instalación](https://espatv.github.io/loiolink/instalar.html)
 
-## Verificación de integridad loiolink v0.3.1:
-- Tamaño: 1,212,974 bytes (1.16 MB)
-- MD5: 647a4d3fecdf970deb289c28c7a4a081
-- SHA-256: 92a99ee28cd9822401107f41612388f469f06bf9e0fc81a3dcedc095e76f3b9a
+## Verificación de integridad loiolink v0.4.1:
+- Tamaño: 1,279,099 bytes (1.22 MB)
+- MD5: ba727df347fa35d0ecf06dbdd6c2ac0b
+- SHA-256: 7bca1360e4718f77ae0e90325cc6936b856e6e72e084fecf34a7bcceb02d25f0
