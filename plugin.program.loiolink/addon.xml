@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.program.loiolink" version="0.3.5"
+<addon id="plugin.program.loiolink" version="0.4.1"
        name="loiolink" provider-name="RubénSDFA1laberot">
     <requires>
         <import addon="xbmc.python" version="3.0.0"/>
@@ -52,6 +52,40 @@
             <icon>icon.jpg</icon>
         </assets>
         <news>
+v0.4.1:
+- El certificado HTTPS ya no se pierde al cambiar de red; si falla la regeneración se conserva el anterior.
+- El QR y los enlaces ya no anuncian https cuando el servidor está escuchando en http.
+- Las canciones abiertas desde el explorador van a la lista de música, no a la de vídeo.
+- Los favoritos ya no pueden desaparecer si Kodi se cierra mientras se guardan.
+- Dos instalaciones o restauraciones largas ya no pueden solaparse y dejar addons a medio extraer.
+- El panel avisa si ya hay una subida en curso en vez de estropear las dos.
+- Una subida cortada a medias ya no se da por terminada; se reanuda desde donde se quedó.
+- El explorador ya no falla con un sources.xml dañado; recupera la última copia buena.
+- Los marcadores y el historial de URLs dejan copia si el archivo se daña, en vez de perderse.
+- El relay externo de texto se reconecta en lugar de quedarse mudo.
+- Los nombres de favoritos se guardan como texto plano y la miniatura solo acepta direcciones de imagen.
+- Una petición malformada al panel recibe un error normal; antes podía cortar la conexión o agotar la memoria.
+- Más controles de seguridad en el emparejamiento, el escáner de páginas y las descargas del panel.
+v0.4.0:
+- El reproductor web ya reproduce audio (mp3, flac, ogg, wav, m4a); antes se rechazaba como "no reproducible en navegador".
+- Corregido que "reproducir y añadir a la biblioteca" enviara el audio a la lista de vídeo.
+- Evitado un movimiento innecesario del archivo al añadirlo a la biblioteca cuando ya estaba en otra unidad (Windows).
+- Nueva opción para deshacer la última restauración, con la copia que ya se guardaba automáticamente antes de restaurar.
+- Al crear un backup para compartir se detalla ahora qué archivos sensibles y qué claves se han quitado.
+- Una subida que fallaba al terminar ya no borra el archivo recibido ni impide reanudarla.
+- La grabación sin límite de duración (valor 0) vuelve a funcionar; antes se aplicaba el límite por defecto.
+- El historial de descargas ya no se pierde si Kodi se cierra mientras se guarda, y deja copia si el archivo se daña.
+- El programador de grabaciones arranca aunque su archivo de programaciones esté dañado.
+- Las imágenes con comillas o barras invertidas en la ruta vuelven a abrirse desde el explorador.
+- El aviso de escaneo de biblioteca ya no aparece cuando el escaneo no ha llegado a empezar.
+- El QR del control remoto avisa si no pudo guardar la sesión, en vez de mostrar un código que el móvil rechazaría.
+- Los ZIP que no se pueden instalar explican el motivo, y las carpetas .bak_ huérfanas ya no se acumulan en addons.
+- El ajuste del modo efímero del servidor de recepción explica ahora el riesgo de desactivarlo.
+- 22 textos de los menús que estaban solo en español ahora se traducen.
+- Los menús ya no lanzan una conexión de red en segundo plano en cada pantalla.
+- Cabeceras de seguridad (anti-sniffing y anti-clickjacking) en el panel web.
+- Seguridad: nombres de archivo recibidos, grabador HLS, lectura de ZIPs, proxy de carátulas y rutas del explorador.
+- Limpieza interna: código sin uso, textos e i18n.
 v0.3.5:
 - Nuevo menú Descargas (URL, código, Telegram) y submenú Portapapeles.
 - Herramienta de limpieza: QR huérfanos, papelera y mantenimiento de Kodi.
